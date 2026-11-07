@@ -161,6 +161,8 @@ Eine Funktion ist fertig, wenn:
 - Nur freizügige Lizenzen für Code (MIT, Apache-2.0, BSD, ISC); **kein GPL/AGPL im Kern**, GPL nur als optionales
   Zusatzpaket (Piper); LGPL nur nach Rückfrage. Neue Abhängigkeiten bekommen eine Zeile unten.
 - Lizenztexte nur aus der Originalquelle, nie aus dem Gedächtnis.
+- Das Projekt selbst steht wahlweise unter PolyForm Noncommercial 1.0.0 oder PolyForm Small Business 1.0.0
+  ([LICENSE.md](LICENSE.md)); neue Pakete müssen sich mit beiden Lizenzen vertragen.
 
 | Paket | Lizenz | Zweck |
 |---|---|---|

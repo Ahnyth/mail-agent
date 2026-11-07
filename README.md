@@ -5,7 +5,8 @@ MailAgent reads an IMAP mailbox without ever changing it, sorts every mail (cate
 responsibility, deadlines, payment data, fraud warnings), prepares reply drafts and files attachments.
 It runs on a Windows PC with a small web interface on `127.0.0.1`, works without AI thanks to a rule-based
 fallback, and **never sends a mail**. The example configuration targets a German home-care service; the
-user interface and the documentation below are in German.
+user interface and the documentation below are in German. Free for personal and noncommercial use and for small
+businesses; larger companies need a commercial license ([LICENSE.md](LICENSE.md)).
 
 ---
 
@@ -173,6 +174,19 @@ uv run python -m mail_agent.eval --modus regeln
 
 ## Lizenz
 
-Noch nicht festgelegt: Die Lizenz bestimmt der Inhaber vor der Veröffentlichung; bis dahin liegt
-keine Lizenzdatei bei. Die Lizenzen der genutzten Pakete stehen in [Guidelines.md](Guidelines.md),
-Abschnitt 8.
+Kostenlos für private und gemeinnützige Nutzung und für kleine Firmen; größere Firmen brauchen eine eigene Lizenz.
+Genau: Das Projekt steht wahlweise unter der **PolyForm Noncommercial License 1.0.0** oder der **PolyForm Small
+Business License 1.0.0**. Die Übersicht steht in [LICENSE.md](LICENSE.md), die verbindlichen Texte in
+[LICENSES](LICENSES/).
+
+| Wer | Nutzen, ändern, weitergeben |
+|---|---|
+| Privatleute (nicht geschäftlich) | ja, kostenlos |
+| Gemeinnützige Organisationen, Schulen, Forschung, Behörden (jede Größe) | ja, kostenlos |
+| Firmen und Selbstständige mit weniger als 100 Personen **und** weniger als 1 Mio. US-Dollar Umsatz im Vorjahr (Wert von 2019, an die Inflation angepasst) | ja, kostenlos |
+| Alle anderen Firmen | nur mit einer eigenen Lizenz vom Inhaber |
+
+Geänderte Fassungen muss niemand veröffentlichen. Wer die Software weitergibt, gibt die Lizenztexte (oder ihren
+Link) und die Zeilen „Required Notice:“ aus [LICENSE.md](LICENSE.md) mit. Das Projekt ist „Quelltext offen“
+(source-available), aber nicht Open Source im Sinne der OSI, weil größere Firmen zahlen. Die Lizenzen der
+genutzten Pakete stehen in [Guidelines.md](Guidelines.md), Abschnitt 8.

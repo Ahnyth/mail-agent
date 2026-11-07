@@ -3,6 +3,8 @@ name = "mail-agent"
 version = "0.2.0"
 description = "Lokaler, nur lesender Mail-Assistent mit Claude (Vorlage)"
 readme = "README.md"
+license = "PolyForm-Noncommercial-1.0.0 OR PolyForm-Small-Business-1.0.0"  # SPDX expression (PEP 639)
+license-files = ["LICENSE.md", "LICENSES/*.md"]
 requires-python = ">=3.13"
 dependencies = [
     "anthropic>=1.0",
@@ -41,7 +43,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling>=1.25"]
+requires = ["hatchling>=1.27"]  # 1.27 is the first version that understands PEP 639 license expressions
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
