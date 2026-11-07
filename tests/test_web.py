@@ -275,15 +275,6 @@ def test_detail_shows_responsible_deadlines_and_correction_form(
     assert "15.11.2026" in page  # deadline from the sample mail
 
 
-class FakeSpeaker:
-    def __init__(self) -> None:
-        self.texts: list[str] = []
-
-    def synthesize(self, text: str) -> bytes:
-        self.texts.append(text)
-        return b"RIFF-test-wav"
-
-
 @pytest.mark.parametrize(
     "path", ["/briefing", "/fristen", "/rechnungen", "/bewerbungen", "/wiedervorlage?tage=0"]
 )
@@ -296,15 +287,9 @@ def test_new_pages_render(client: TestClient, imported: MailAgentService, path: 
 def test_briefing_page_reads_aloud_without_body(client: TestClient, imported: MailAgentService) -> None:
     page = client.get("/briefing").text
     assert "Morgen-Briefing" in page
-    assert "data-speak=" in page
-    assert "Piper" not in page  # no voice configured
-    assert client.get("/briefing/audio").status_code == 404
-    speaker = FakeSpeaker()
-    imported.speaker = speaker  # type: ignore[assignment]
-    assert "Piper" in client.get("/briefing").text
-    audio = client.get("/briefing/audio")
-    assert (audio.status_code, audio.headers["content-type"]) == (200, "audio/wav")
-    assert speaker.texts[0].startswith("Guten Morgen")
+    assert 'data-speak="Guten Morgen' in page  # spoken by the Windows voice via /vorlesen
+    assert "Piper" not in page
+    assert client.get("/briefing/audio").status_code == 404  # the template has no Piper voice
 
 
 def test_deadline_exports(client: TestClient, imported: MailAgentService) -> None:

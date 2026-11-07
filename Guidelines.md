@@ -63,7 +63,7 @@ Jeder Begriff aus Code, Oberfläche oder Gespräch steht hier genau einmal, mit 
 | KI | Claude Code im Druckmodus (`claude -p`) über das Claude-Abo; Regeln als Rückfall |
 | Postfach | IMAP über TLS, `EXAMINE` und `BODY.PEEK[]`, Befehls-Allowlist |
 | Anhänge | pypdfium2, Pillow, Tesseract (optional) |
-| Sprache/Stimme | Windows-Stimme (SAPI), optional Piper (GPL, Zusatzpaket) und faster-whisper |
+| Sprache/Stimme | Windows-Stimme (SAPI), optional faster-whisper |
 | Verschlüsselung | `cryptography` (AES-GCM, scrypt) für die Übergabe-Datei |
 | Tests | pytest, ruff, mypy strict |
 
@@ -158,8 +158,8 @@ Eine Funktion ist fertig, wenn:
 
 ## 8. Abhängigkeiten und Lizenzen
 
-- Nur freizügige Lizenzen für Code (MIT, Apache-2.0, BSD, ISC); **kein GPL/AGPL im Kern**, GPL nur als optionales
-  Zusatzpaket (Piper); LGPL nur nach Rückfrage. Neue Abhängigkeiten bekommen eine Zeile unten.
+- Nur freizügige Lizenzen für Code (MIT, Apache-2.0, BSD, ISC); **kein GPL/AGPL**, auch nicht als optionales
+  Zusatzpaket; LGPL nur nach Rückfrage. Neue Abhängigkeiten bekommen eine Zeile unten.
 - Lizenztexte nur aus der Originalquelle, nie aus dem Gedächtnis.
 - Das Projekt selbst steht wahlweise unter PolyForm Noncommercial 1.0.0 oder PolyForm Small Business 1.0.0
   ([LICENSE.md](LICENSE.md)); neue Pakete müssen sich mit beiden Lizenzen vertragen.
@@ -175,5 +175,4 @@ Eine Funktion ist fertig, wenn:
 | cryptography | Apache-2.0 / BSD-3-Clause | Verschlüsselung der Übergabe-Datei |
 | pystray | LGPL-3.0 | Symbol neben der Uhr; unverändert als Paket genutzt |
 | six | MIT | Abhängigkeit von pystray |
-| piper-tts (optional) | GPL-3.0-or-later | Offline-Vorlesen, Zusatzpaket `stimme` |
 | faster-whisper (optional) | MIT | Sprachsteuerung, Zusatzpaket `sprache` |

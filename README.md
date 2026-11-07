@@ -38,7 +38,7 @@ anpasst, steht unten unter [An die eigene Firma anpassen](#an-die-eigene-firma-a
 | Einheitlichkeit | die KI sieht, wie frühere Mails desselben Absenders eingeordnet bzw. korrigiert wurden |
 | Übersichten | Morgen-Briefing (auch zum Vorlesen), Fristen, Rechnungen, Bewerbungen mit Checkliste, Wiedervorlage |
 | Anhänge | PDF-Text und Texterkennung für Scans (Tesseract); Ablage unter `daten/ablage/<Jahr>/…` mit `herkunft.json` |
-| Vorlesen und Sprache | deutsche Windows-Stimme offline; optional Piper und lokale Spracherkennung mit faster-whisper |
+| Vorlesen und Sprache | deutsche Windows-Stimme offline; optional lokale Spracherkennung mit faster-whisper |
 | Testsammlung | 79 erfundene Mails mit Soll-Ergebnis, Auswertung per `python -m mail_agent.eval` |
 
 ## Voraussetzungen
@@ -136,8 +136,8 @@ weiterentwickeln kann:
   sind einstellbar. Ist das Kontingent erschöpft, ordnen die Regeln ein und die KI wird später
   nachgeholt.
 - **Texterkennung**: `winget install --id UB-Mannheim.TesseractOCR -e` (Sprache „German“ wählen).
-- **Vorlesen mit Piper** (GPL-3.0, optional): `uv sync --inexact --extra stimme`;
-  **Sprachsteuerung**: `uv sync --inexact --extra sprache --extra stimme`.
+- **Sprachsteuerung** (optional): `uv sync --inexact --extra sprache`; vorgelesen wird immer mit der deutschen
+  Windows-Stimme.
 
 Alle Optionen sind in [mail_agent.example.toml](mail_agent.example.toml) kommentiert. Passwörter und
 Schlüssel gehören **nie** in diese Datei.

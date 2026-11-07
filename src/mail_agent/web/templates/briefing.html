@@ -7,11 +7,9 @@
     <p class="muted">Stand {{ b.today.strftime("%d.%m.%Y") }} · nur offene Nachrichten · ohne KI erstellt</p>
   </div>
   <div class="actions">
-    <button class="btn" type="button" data-speak="{{ speech }}">🔊 Vorlesen (Browser)</button>
-    {% if has_voice %}<button class="btn" type="button" data-audio="/briefing/audio">🔊 Vorlesen (Piper, offline)</button>{% endif %}
+    <button class="btn" type="button" data-speak="{{ speech }}">🔊 Vorlesen</button>
   </div>
 </section>
-<audio id="briefing-audio" controls hidden></audio>
 
 <div class="grid">
   <section class="card">

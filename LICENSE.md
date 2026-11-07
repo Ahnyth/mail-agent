@@ -1,8 +1,5 @@
 # Lizenz / License
 
-<!-- Vor der Veröffentlichung: unter dieser Überschrift die Zeile „Required Notice: Copyright <Inhaber> (<Link>)“
-     ergänzen. Wer die Software weitergibt, muss diese Zeile mitgeben (Abschnitt „Notices“ der Lizenztexte). -->
-
 Dieses Projekt steht **wahlweise** unter einer von zwei Lizenzen. Jeder nutzt die, deren Bedingungen er erfüllt:
 
 - [PolyForm Noncommercial License 1.0.0](LICENSES/PolyForm-Noncommercial-1.0.0.md): jede nicht-kommerzielle

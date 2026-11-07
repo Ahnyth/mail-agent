@@ -102,8 +102,6 @@ follow_up_days = 3
 briefing_days = 14
 
 [voice]
-# Piper-Stimme für das Vorlesen des Briefings (optional, "uv sync --extra stimme").
-# piper_model = "daten/stimmen/de_DE-thorsten-high.onnx"
 # Whisper-Modell (Ordner) für die lokale Sprachsteuerung (optional, "uv sync --extra sprache").
 # whisper_model = "daten/stimmen/whisper-small"
 

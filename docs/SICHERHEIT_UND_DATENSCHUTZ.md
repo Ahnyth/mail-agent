@@ -50,12 +50,10 @@
   ein Vorschlag zum Importieren; nichts wird automatisch eingetragen. Achtung: Wer sie in einen
   Cloud-Kalender importiert, überträgt Betreff und Absender dorthin.
 - Der CSV-Export neutralisiert Zellen, die mit `= + - @` beginnen (keine Formeln aus Mailinhalten).
-- Vorlesen: Browser-Stimme (`speechSynthesis`, unter Windows lokal) oder Piper (offline). Gelesen
+- Vorlesen: die deutsche Windows-Stimme, offline per PowerShell erzeugt; fehlt sie, die lokale Browser-Stimme
+  (`speechSynthesis`, Online-Stimmen werden nicht genutzt). Gelesen
   werden nur Kategorie, Absender, Betreff bzw. ein KI-Vorlesesatz ohne Namen und Gesundheitsdaten,
   nie der Mailtext. Erzeugtes Audio wird nicht gespeichert.
-- Piper (`piper-tts`) steht unter GPL-3.0-or-later und ist deshalb nur ein optionales Zusatzpaket
-  (`uv sync --extra stimme`); die Stimme `de_DE-thorsten-high` (Datensatz CC0) liegt in
-  `daten/stimmen/` und wird nicht eingecheckt.
 
 ### Sprachsteuerung
 

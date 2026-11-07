@@ -33,8 +33,6 @@ DEFAULT_APPLICATION_TEMPLATE = "config/vorlagen/bewerbung_eingang.md"
 """Fixed confirmation of receipt for applications."""
 DEFAULT_CARE_REQUEST_TEMPLATE = "config/vorlagen/pflegeanfrage_antwort.md"
 """The office's pattern for replies to care requests."""
-DEFAULT_PIPER_MODEL = "daten/stimmen/de_DE-thorsten-high.onnx"
-"""German Piper voice for reading the briefing aloud."""
 DEFAULT_WHISPER_MODEL = "daten/stimmen/whisper-small"
 """Folder of the faster-whisper model for voice commands."""
 DEFAULT_WEB_PORT = 8765
@@ -185,7 +183,6 @@ class Settings:
     new_cases_dir: Path | None = None
     attachments: AttachmentSettings = field(default_factory=AttachmentSettings)
     workflow: WorkflowSettings = field(default_factory=WorkflowSettings)
-    piper_model: Path | None = None
     whisper_model: Path | None = None
     """Folder of a faster-whisper model for local voice commands; ``None`` disables push-to-talk."""
 
@@ -237,7 +234,7 @@ _SECTIONS: dict[str, set[str]] = {
     "eval": {"new_cases_dir"},
     "attachments": {"read_text", "tesseract_command", "ocr_language"},
     "workflow": {"follow_up_days", "briefing_days"},
-    "voice": {"piper_model", "whisper_model"},
+    "voice": {"whisper_model"},
 }
 """Every allowed section of the file with its allowed keys."""
 _RENAMED = {
@@ -397,7 +394,6 @@ def parse_settings(data: dict[str, Any], base_dir: Path) -> Settings:
         new_cases_dir=sections["eval"].path("new_cases_dir", DEFAULT_NEW_CASES_DIR),
         attachments=_attachment_settings(sections["attachments"], language),
         workflow=_workflow_settings(sections["workflow"]),
-        piper_model=sections["voice"].optional_file("piper_model", DEFAULT_PIPER_MODEL),
         whisper_model=sections["voice"].optional_model_dir("whisper_model", DEFAULT_WHISPER_MODEL),
     )
     _check_consistency(settings)

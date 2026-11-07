@@ -62,7 +62,7 @@ erkennt der Agent zusätzlich an der Message-ID.
 | `briefing.py` | Morgen-Briefing, Fristen-, Rechnungs- und Wiedervorlage-Listen aus der Datenbank (ohne KI) |
 | `exports.py` | `.ics`-Kalenderdatei für Fristen, CSV für Rechnungen (Formel-Schutz) |
 | `applications.py` | Checkliste fehlender Bewerbungsunterlagen, feste Eingangsbestätigung |
-| `voice.py` | Piper-Sprachausgabe (optional, GPL-3.0) |
+| `voice.py` | Sprachausgabe mit der deutschen Windows-Stimme (offline per PowerShell, WAV im Speicher) |
 | `speech_input.py` | lokale Spracherkennung mit faster-whisper (WAV im Speicher dekodieren, ohne PyAV) |
 | `commands.py` | Sprachbefehle per festen Regeln; „Antworte: …“ → Entwurf |
 | `filing.py` | Anhänge sicher benennen, ablegen, Herkunft dokumentieren |

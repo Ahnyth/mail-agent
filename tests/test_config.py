@@ -67,7 +67,7 @@ def test_load_without_file_uses_defaults(tmp_path: Path, monkeypatch: pytest.Mon
         ({"analysis": {"known_senders": "fehlt.yaml"}}, "nicht gefunden"),
         ({"workflow": {"follow_up_days": 0}}, "workflow.follow_up_days"),
         ({"attachments": {"ocr_language": "deu; rm"}}, "ocr_language"),
-        ({"voice": {"piper_model": "fehlt.onnx"}}, "nicht gefunden"),
+        ({"voice": {"piper_model": "stimme.onnx"}}, "Unbekannte Schlüssel.*piper_model"),  # no Piper here
         ({"imap": {"credential_target": "a b"}}, "credential_target"),
         ({"web": []}, "muss ein Abschnitt sein"),
     ],
@@ -142,5 +142,4 @@ def test_phase2_defaults(tmp_path: Path) -> None:
     assert settings.attachments.read_text
     assert settings.attachments.ocr_language == "deu"
     assert (settings.workflow.follow_up_days, settings.workflow.briefing_days) == (3, 14)
-    assert settings.piper_model is None  # default voice file missing: no speech output
     assert settings.analysis.application_template is None

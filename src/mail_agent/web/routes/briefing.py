@@ -1,4 +1,4 @@
-"""The morning briefing and reading texts aloud with the German Windows voice or Piper."""
+"""The morning briefing and reading texts aloud with the German Windows voice."""
 
 from http import HTTPStatus
 from typing import Annotated
@@ -18,23 +18,7 @@ WAV_TYPE = "audio/wav"
 def briefing_page(request: Request, context: Context) -> Response:
     """Shows today's briefing with the text that can be read aloud."""
     briefing = context.briefing()
-    data = {"b": briefing, "speech": briefing.speech_text(), "has_voice": context.service.speaker is not None}
-    return context.render(request, "briefing.html", data)
-
-
-@router.get("/briefing/audio")
-def briefing_audio(context: Context) -> Response:
-    """Returns the briefing spoken by the optional Piper voice."""
-    speaker = context.service.speaker
-    if speaker is None:
-        raise HTTPException(HTTPStatus.NOT_FOUND, "Keine Piper-Stimme eingerichtet")
-    try:
-        audio = speaker.synthesize(context.briefing().speech_text())
-    except VoiceUnavailableError:
-        raise HTTPException(
-            HTTPStatus.SERVICE_UNAVAILABLE, "Piper ist nicht installiert (uv sync --extra stimme)"
-        ) from None
-    return Response(audio, media_type=WAV_TYPE)
+    return context.render(request, "briefing.html", {"b": briefing, "speech": briefing.speech_text()})
 
 
 @router.post("/vorlesen")

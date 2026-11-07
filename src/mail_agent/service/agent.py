@@ -19,7 +19,7 @@ from ..sources import MailSource
 from ..sources.imap import ImapSource
 from ..speech_input import WhisperTranscriber
 from ..storage import MailRepository
-from ..voice import PiperSpeaker, WindowsSpeaker
+from ..voice import WindowsSpeaker
 from .cases import CaseExporter
 from .execution import JobExecution
 from .handover_sync import HandoverSync
@@ -44,7 +44,6 @@ class ServiceOptions:
     ocr: TesseractOcr | None = None
     read_attachment_text: bool = True
     workflow: WorkflowSettings = field(default_factory=WorkflowSettings)
-    speaker: PiperSpeaker | None = None
     transcriber: WhisperTranscriber | None = None
     drafter: ClaudeAnalyzer | None = None
     organization: OrganizationSettings = field(default_factory=OrganizationSettings)
@@ -62,7 +61,6 @@ class MailAgentService:
     the helpers per call from them, so a changed part (e.g. a newly saved sender) takes effect at once.
 
     Attributes:
-        speaker: Piper voice for the briefing; ``None`` without the optional package.
         transcriber: Speech recognition for push-to-talk; ``None`` without the optional package.
         drafter: Claude for "Von KI formulieren lassen"; ``None`` without AI.
         settings: Set by ``build_service``; needed to rebuild the analysis after a sender was saved.
@@ -98,7 +96,6 @@ class MailAgentService:
         self.ocr = options.ocr
         self.read_attachment_text = options.read_attachment_text
         self.workflow = options.workflow
-        self.speaker = options.speaker
         self.transcriber = options.transcriber
         self.drafter = options.drafter
         self.organization = options.organization

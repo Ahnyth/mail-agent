@@ -1,4 +1,4 @@
-"""Offline speech output: the German voice built into Windows, or Piper (optional extra ``stimme``).
+"""Offline speech output with the German voice built into Windows.
 
 Audio is generated on request on this PC and returned directly as WAV; it is neither stored nor sent
 anywhere. Only read-aloud texts without names or health data are spoken.
@@ -10,13 +10,9 @@ audio – pause, stop and speed then work the same in every browser.
 
 import base64
 import binascii
-import io
 import subprocess
 import threading
-import wave
 from collections.abc import Callable
-from pathlib import Path
-from typing import Any
 
 from .processes import NO_WINDOW
 from .security.redaction import get_logger
@@ -56,46 +52,12 @@ Runner = Callable[..., subprocess.CompletedProcess[bytes]]
 
 
 class VoiceUnavailableError(Exception):
-    """Piper or the voice model is missing; ``code`` is a fixed diagnostic code."""
+    """The Windows voice cannot speak; ``code`` is a fixed diagnostic code."""
 
     def __init__(self, code: str) -> None:
         """Keeps ``code`` for the web interface, which shows a German text for it."""
         super().__init__(code)
         self.code = code
-
-
-class PiperSpeaker:
-    """The Piper voice (optional extra ``stimme``); the model is loaded on first use."""
-
-    def __init__(self, model_path: Path) -> None:
-        """Speaks with the voice model at ``model_path`` (an ``.onnx`` file)."""
-        self._model_path = model_path
-        self._voice: Any = None
-        self._lock = threading.Lock()  # one synthesis at a time; the model is not thread-safe
-
-    def synthesize(self, text: str) -> bytes:
-        """Returns the WAV audio of ``text``.
-
-        Raises:
-            VoiceUnavailableError: Piper is not installed (``piper_missing``).
-        """
-        buffer = io.BytesIO()
-        with self._lock:
-            voice = self._load()
-            with wave.open(buffer, "wb") as wav_file:
-                voice.synthesize_wav(text, wav_file)
-        return buffer.getvalue()
-
-    def _load(self) -> Any:
-        """Returns the voice, loading it on the first call; the caller holds the lock."""
-        if self._voice is None:
-            try:
-                from piper import PiperVoice  # noqa: PLC0415 - optional extra, loaded only when used
-            except ImportError:
-                raise VoiceUnavailableError("piper_missing") from None
-            self._voice = PiperVoice.load(self._model_path)
-            _log.info("Piper-Stimme geladen: %s", self._model_path.name)
-        return self._voice
 
 
 class WindowsSpeaker:

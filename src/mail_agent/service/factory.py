@@ -12,7 +12,7 @@ from ..sources.eml_folder import EmlFolderSource
 from ..sources.imap import ImapSource
 from ..speech_input import WhisperTranscriber
 from ..storage import MailRepository
-from ..voice import PiperSpeaker, WindowsSpeaker
+from ..voice import WindowsSpeaker
 from .agent import MailAgentService, ServiceOptions
 from .setup import build_analyzer, build_drafter, build_ocr, build_senders
 
@@ -54,7 +54,6 @@ def build_options(settings: Settings) -> ServiceOptions:
         ocr=build_ocr(settings) if settings.attachments.read_text else None,
         read_attachment_text=settings.attachments.read_text,
         workflow=settings.workflow,
-        speaker=PiperSpeaker(settings.piper_model) if settings.piper_model else None,
         transcriber=WhisperTranscriber(settings.whisper_model) if settings.whisper_model else None,
         drafter=build_drafter(settings),
         organization=settings.organization,
