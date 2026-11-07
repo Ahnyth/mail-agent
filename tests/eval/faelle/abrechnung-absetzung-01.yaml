@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-absetzung-01
+beschreibung: "Abrechnungszentrum meldet Absetzung durch die Kasse und fragt nach Widerspruch"
+tags: [abrechnungsdienst, absetzung]
+mail:
+  von: "Abrechnungszentrum Nord <service@abrechnung-nord.example>"
+  betreff: "Absetzung AOK Musterland – Rechnung 2026-08-117"
+  datum: "2026-10-21T11:40:00+02:00"
+  anhaenge: [Absetzungsschreiben_AOK.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    die AOK Musterland hat aus der Rechnung 2026-08-117 einen Betrag von 214,60 Euro abgesetzt.
+    Begründung der Kasse: Leistungen zur Medikamentengabe bei Herrn Karl Brandt vom
+    01.08. bis 09.08. seien nicht genehmigt gewesen.
+
+    Bitte teilen Sie uns bis zum 20.11.2026 mit, ob wir Widerspruch gegen die Absetzung
+    einlegen sollen, und senden Sie uns ggf. die Genehmigung bzw. Verordnung zu.
+
+    Mit freundlichen Grüßen
+    Abrechnungszentrum Nord
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: abrechnung
+  warnung: false
+  frist: true

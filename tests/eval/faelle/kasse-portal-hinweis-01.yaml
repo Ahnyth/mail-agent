@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-portal-hinweis-01
+beschreibung: "Automatischer Hinweis des AOK-Portals auf ein neues Dokument"
+tags: [kostentraeger, noreply, portal]
+mail:
+  von: "AOK Musterland Leistungserbringerportal <noreply@portal.aok-musterland.example>"
+  betreff: "Neues Dokument in Ihrem Postfach"
+  datum: "2026-10-30T07:02:00+01:00"
+  text: |
+    Guten Tag,
+
+    in Ihrem Postfach im Leistungserbringerportal der AOK Musterland liegt ein neues Dokument
+    für Sie bereit (Dokumentart: Entscheidung Pflegesachleistung).
+
+    Bitte melden Sie sich wie gewohnt im Portal an, um das Dokument abzurufen.
+
+    Dies ist eine automatisch erzeugte Nachricht. Bitte antworten Sie nicht auf diese E-Mail.
+
+    AOK Musterland
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  warnung: false

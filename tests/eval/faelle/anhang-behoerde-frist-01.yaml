@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-behoerde-frist-01
+beschreibung: Landratsamt fordert Unterlagen an, Frist steht nur im PDF
+tags: [anhang, frist]
+mail:
+  von: "Landratsamt Musterkreis <heimaufsicht@musterkreis.example>"
+  betreff: "Anforderung von Unterlagen – Ihr Schreiben vom 15.10.2026"
+  datum: "2026-11-02T09:30:00+01:00"
+  anhaenge:
+    - name: Anforderung_Unterlagen.pdf
+      text: |
+        Landratsamt Musterkreis – Fachstelle Pflege- und Behinderteneinrichtungen
+        Wir bitten um Übersendung folgender Unterlagen bis zum 20.11.2026:
+        1. Hygieneplan
+        2. Nachweis der Fortbildungen der Pflegefachkräfte 2026
+        3. Konzept der Wohngemeinschaft Lindenweg
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    bitte beachten Sie das beigefügte Schreiben.
+
+    Mit freundlichen Grüßen
+    Landratsamt Musterkreis
+soll:
+  kategorie: behoerde
+  prioritaet: normal
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  frist: true
+  anhang_passt: true

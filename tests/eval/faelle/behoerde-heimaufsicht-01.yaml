@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: behoerde-heimaufsicht-01
+beschreibung: "Heimaufsicht fordert Personalunterlagen zur Intensiv-WG binnen vier Tagen an"
+tags: [behoerde, pruefung, frist-kurz]
+mail:
+  von: "Heimaufsicht Musterkreis <heimaufsicht@musterkreis.example>"
+  betreff: "Anfrage zur Intensivpflege-Wohngemeinschaft Lindenweg – Rückmeldung bis 30.10."
+  datum: "2026-10-26T13:45:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    uns liegt ein Hinweis zur personellen Besetzung in der von Ihnen versorgten
+    Intensivpflege-Wohngemeinschaft vor. Wir bitten Sie, uns bis spätestens Freitag, 30.10.2026,
+    folgende Unterlagen per E-Mail zu übermitteln:
+
+    1. Dienstpläne (Soll und Ist) für September und Oktober 2026
+    2. Qualifikationsnachweise der eingesetzten Pflegefachkräfte
+    3. Name der verantwortlichen Pflegefachkraft vor Ort
+
+    Für Rückfragen stehe ich gern zur Verfügung.
+
+    Mit freundlichen Grüßen
+    Uwe Brenner
+    Heimaufsicht / Fachstelle Pflege- und Behinderteneinrichtungen
+soll:
+  kategorie: behoerde
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: geschaeftsfuehrung
+  frist: true

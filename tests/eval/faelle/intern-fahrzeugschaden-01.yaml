@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: intern-fahrzeugschaden-01
+beschreibung: "Mitarbeiterin meldet Parkrempler mit dem Dienstwagen"
+tags: [intern, fahrzeug, anhang]
+mail:
+  von: "Jana Peters <jana.peters@musterpflege.example>"
+  betreff: "Schaden Dienstwagen MS-VP 104"
+  datum: "2026-10-22T13:18:00+02:00"
+  anhaenge: [Foto_Stossstange.jpg, Unfallbericht_Peters.pdf]
+  text: |
+    Hallo Büro,
+
+    beim Ausparken vor dem Haus von Frau Lange bin ich heute Vormittag gegen einen Poller
+    gefahren. Die hintere Stoßstange vom Dienstwagen MS-VP 104 hat eine Delle und Kratzer,
+    sonst ist nichts passiert, kein anderes Fahrzeug beteiligt. Das Auto ist fahrbereit.
+
+    Fotos und den ausgefüllten Unfallbericht hänge ich an.
+
+    LG Jana
+soll:
+  kategorie: intern
+  prioritaet: normal
+  entwurf: false
+  zustaendig: verwaltung

@@ -1,0 +1,23 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: sonstiges-hausverwaltung-01
+beschreibung: "Hausverwaltung informiert über neuen Reinigungsdienst im Bürogebäude"
+tags: [hausverwaltung, info]
+mail:
+  von: "Hausverwaltung Ostermann <info@hv-ostermann.example>"
+  betreff: "Info an alle Mieter: Treppenhausreinigung ab November"
+  datum: "2026-10-29T10:10:00+01:00"
+  text: |
+    Sehr geehrte Mieterinnen und Mieter,
+
+    ab dem 01.11.2026 übernimmt die Firma Glanzwerk Gebäudeservice die Treppenhausreinigung
+    in Ihrem Gebäude. Gereinigt wird künftig dienstags und freitags vormittags.
+    Für Sie ändert sich nichts, die Kosten bleiben unverändert in den Nebenkosten enthalten.
+
+    Mit freundlichen Grüßen
+    Hausverwaltung Ostermann
+soll:
+  kategorie: sonstiges
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung
+  warnung: false

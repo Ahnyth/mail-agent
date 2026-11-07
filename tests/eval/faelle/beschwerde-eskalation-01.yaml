@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: beschwerde-eskalation-01
+beschreibung: "Eskalierende Beschwerde mit Drohung Pflegekasse und Anwalt, Stellungnahme bis Freitag"
+tags: [beschwerde, eskalation, anwalt]
+mail:
+  von: "Frank Richter <frank.richter@mailbox.example>"
+  betreff: "LETZTE CHANCE – ausgefallene Einsätze bei meinem Vater"
+  datum: "2026-10-26T07:40:00+01:00"
+  text: |
+    Sehr geehrte Geschäftsführung,
+
+    am Samstag und Sonntag ist bei meinem Vater, Herrn Günter Richter, der Abendeinsatz komplett
+    ausgefallen. Niemand hat Bescheid gegeben, er lag die ganze Nacht in der nassen Vorlage.
+    Meine Anrufe im Büro wurden nicht zurückgerufen. Das ist nicht das erste Mal.
+
+    Ich erwarte bis Freitag, 30.10.2026, eine schriftliche Stellungnahme. Andernfalls werde ich
+    die Pflegekasse informieren, den Vertrag kündigen und meinen Anwalt einschalten.
+
+    Frank Richter
+soll:
+  kategorie: beschwerde
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: geschaeftsfuehrung
+  frist: true

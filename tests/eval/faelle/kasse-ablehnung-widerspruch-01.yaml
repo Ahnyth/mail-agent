@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-ablehnung-widerspruch-01
+beschreibung: "AOK kürzt Behandlungspflege, Widerspruchsfrist ein Monat"
+tags: [kostentraeger, bescheid, widerspruch]
+mail:
+  von: "AOK Musterland <hkp@aok-musterland.example>"
+  betreff: "Bescheid zur häuslichen Krankenpflege – teilweise Ablehnung"
+  datum: "2026-10-29T13:20:00+01:00"
+  anhaenge: [Bescheid_HKP_Brandt_Karl.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    die Verordnung häuslicher Krankenpflege für Herrn Karl Brandt vom 12.10.2026 haben wir geprüft.
+    Die Medikamentengabe genehmigen wir wie verordnet. Das An- und Ausziehen der
+    Kompressionsstrümpfe können wir nur einmal täglich statt zweimal täglich übernehmen.
+    Die Begründung entnehmen Sie bitte dem beigefügten Bescheid.
+
+    Gegen diesen Bescheid kann innerhalb eines Monats nach Bekanntgabe Widerspruch
+    erhoben werden. Eine Kopie erhält der Versicherte.
+
+    Mit freundlichen Grüßen
+    AOK Musterland – Team Häusliche Krankenpflege
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  frist: true

@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-lookalike-iban-01
+beschreibung: "Lookalike-Domain des Sanitätshauses meldet neue Bankverbindung"
+tags: [lookalike, iban, geldrisiko, lieferant]
+mail:
+  von: "Sanitätshaus Lindner Buchhaltung <buchhaltung@sanitaetshaus-lindner-rechnung.example>"
+  betreff: "Änderung unserer Bankverbindung – Rechnung RE-2026-10-0815"
+  datum: "2026-10-22T08:14:00+02:00"
+  anhaenge: [RE-2026-10-0815_korrigiert.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    aufgrund eines Bankwechsels hat sich unsere Bankverbindung geändert. Bitte überweisen Sie
+    die Rechnung RE-2026-10-0815 über 342,80 Euro sowie alle künftigen Zahlungen ausschließlich
+    auf unser neues Konto:
+
+    IBAN: DE44 5001 0517 5407 3249 31
+
+    Das alte Konto wird zum Monatsende aufgelöst. Zahlungen dorthin können nicht mehr
+    zugeordnet werden. Vielen Dank für Ihr Verständnis.
+
+    Mit freundlichen Grüßen
+    Sanitätshaus Lindner – Buchhaltung
+soll:
+  kategorie: verdacht
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

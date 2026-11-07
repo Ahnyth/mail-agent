@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: bewerbung-jobportal-01
+beschreibung: "Jobportal meldet neue Bewerbung von einer noreply-Adresse"
+tags: [bewerbung, noreply, portal]
+mail:
+  von: "PflegeJobs Portal <noreply@pflegejobs-portal.example>"
+  betreff: "Neue Bewerbung auf Ihre Stelle: Pflegefachkraft ambulant (m/w/d)"
+  datum: "2026-10-29T07:31:00+01:00"
+  anhaenge: [Lebenslauf_Kaya.pdf]
+  text: |
+    Hallo Musterpflege GmbH,
+
+    Sie haben eine neue Bewerbung über PflegeJobs Portal erhalten.
+
+    Stelle: Pflegefachkraft ambulant (m/w/d), Vollzeit
+    Bewerber: Emre Kaya
+    Verfügbar ab: 01.12.2026
+    Nachricht: „Ich habe 6 Jahre Erfahrung in der ambulanten Pflege und suche eine neue Herausforderung.“
+
+    Den vollständigen Bewerbungsvorgang sehen Sie in Ihrem Arbeitgeberkonto.
+    Bitte antworten Sie nicht direkt auf diese E-Mail – sie wurde automatisch versendet.
+
+    Ihr PflegeJobs Portal Team
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: personal
+  warnung: false

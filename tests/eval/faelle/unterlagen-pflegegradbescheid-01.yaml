@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: unterlagen-pflegegradbescheid-01
+beschreibung: "Tochter reicht neuen Pflegegradbescheid nach und fragt nach Folgen"
+tags: [unterlagen, angehoerige, anhang]
+mail:
+  von: "Anja Vogt <anja.vogt@mailbox.example>"
+  betreff: "Bescheid Pflegegrad 4 für Mama"
+  datum: "2026-10-27T18:20:00+01:00"
+  anhaenge: [Bescheid_Pflegegrad_Vogt.jpg]
+  text: |
+    Hallo Frau Hoffmann,
+
+    heute kam endlich der Bescheid der Pflegekasse: meine Mutter, Elisabeth Vogt, ist jetzt
+    rückwirkend ab 01.09. in Pflegegrad 4 eingestuft. Ich habe den Brief abfotografiert und hänge ihn an.
+
+    Ändert sich dadurch etwas an den Einsätzen oder an unserem Eigenanteil?
+
+    Liebe Grüße
+    Anja Vogt
+soll:
+  kategorie: unterlagen
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

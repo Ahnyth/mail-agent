@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-messe-01
+beschreibung: "Mitarbeiterin leitet Messe-Einladung kommentarlos weiter"
+tags: [weiterleitung, werbung, messe]
+mail:
+  von: "Jana Peters <jana.peters@musterpflege.example>"
+  betreff: "Fwd: Einladung Fachmesse PflegeForum Nord 2027"
+  datum: "2026-10-21T17:02:00+02:00"
+  text: |
+    ---------- Forwarded message ---------
+    Von: PflegeForum Nord <einladung@pflegeforum-nord.example>
+    Datum: Mi., 21. Okt. 2026 um 09:00 Uhr
+    Betreff: Einladung Fachmesse PflegeForum Nord 2027
+    An: <jana.peters@musterpflege.example>
+
+    Liebe Pflegeprofis,
+
+    vom 10. bis 12. März 2027 öffnet das PflegeForum Nord wieder seine Tore: über 200 Aussteller,
+    Fachvorträge zu Digitalisierung, Personalgewinnung und außerklinischer Intensivpflege.
+    Sichern Sie sich jetzt Ihr kostenloses Fachbesucher-Ticket mit dem Code PFN27.
+
+    Wir freuen uns auf Sie!
+    Ihr Messeteam PflegeForum Nord
+    Abmelden: https://pflegeforum-nord.example/abmelden
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung

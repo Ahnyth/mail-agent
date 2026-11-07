@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: bewerbung-intensivpflege-01
+beschreibung: "Bewerbung für die außerklinische Intensivpflege mit Beatmungserfahrung"
+tags: [bewerbung, intensivpflege, anhang]
+mail:
+  von: "Sven Becker <sven.becker@post-beispiel.example>"
+  betreff: "Bewerbung Pflegefachkraft außerklinische Intensivpflege"
+  datum: "2026-11-01T19:55:00+01:00"
+  anhaenge: [Bewerbung_Becker.pdf, Zertifikat_Atmungstherapie_Becker.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    ich bin Gesundheits- und Krankenpfleger und seit acht Jahren auf einer internistischen
+    Intensivstation tätig, davon drei Jahre mit Schwerpunkt Weaning. Ich bin sicher im Umgang
+    mit invasiver und nicht-invasiver Beatmung sowie im Trachealkanülenmanagement und habe
+    2025 die Weiterbildung zum Atmungstherapeuten abgeschlossen.
+
+    Gern würde ich in der 1:1-Versorgung in Ihrem Intensivpflegeteam arbeiten.
+    Meine Unterlagen finden Sie im Anhang. Wann wäre ein Kennenlernen möglich?
+
+    Mit freundlichen Grüßen
+    Sven Becker
+    0172 0000000
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal

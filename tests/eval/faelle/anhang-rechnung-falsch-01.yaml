@@ -1,0 +1,32 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-rechnung-falsch-01
+beschreibung: Rechnung angekündigt, angehängt ist ein Lieferschein mit anderer Nummer
+tags: [anhang, zahlung]
+mail:
+  von: "Medizinbedarf Krause <rechnung@medbedarf-krause.example>"
+  betreff: "Rechnung 2026-311"
+  datum: "2026-10-29T10:40:00+01:00"
+  anhaenge:
+    - name: Rechnung_2026-311.pdf
+      text: |
+        Medizinbedarf Krause – Lieferschein
+        Lieferschein Nr. LS-2026-0977
+        Lieferdatum: 21.10.2026
+        2 Kartons Inkontinenzmaterial Größe M
+        1 Karton Hautschutzcreme
+        Keine Rechnung – Rechnung folgt separat.
+  text: |
+    Guten Tag,
+
+    im Anhang finden Sie unsere Rechnung 2026-311 über 864,20 EUR für die Lieferung vom 21.10.
+    Bitte überweisen Sie den Betrag innerhalb von 14 Tagen.
+
+    Freundliche Grüße
+    Medizinbedarf Krause
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: abrechnung
+  warnung: false
+  anhang_passt: false

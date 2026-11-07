@@ -1,0 +1,22 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-verschiebung-01
+beschreibung: "Klientin möchte Einsatz nächste Woche wegen Arzttermin auf Nachmittag legen"
+tags: [klient]
+mail:
+  von: "Gertrud Lange <gertrud.lange@mailbox.example>"
+  betreff: "Einsatz am Donnerstag, 29.10."
+  datum: "2026-10-21T09:48:00+02:00"
+  text: |
+    Liebes Musterpflege-Team,
+
+    am Donnerstag nächster Woche (29.10.) habe ich vormittags einen Termin beim Augenarzt.
+    Könnte die Schwester an dem Tag ausnahmsweise erst am Nachmittag kommen, so ab 15 Uhr?
+
+    Vielen Dank und herzliche Grüße
+    Gertrud Lange
+soll:
+  kategorie: termin
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl
+  frist: false

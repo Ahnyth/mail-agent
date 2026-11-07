@@ -1,0 +1,94 @@
+[project]
+name = "mail-agent"
+version = "0.2.0"
+description = "Lokaler, nur lesender Mail-Assistent mit Claude (Vorlage)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=1.0",
+    "cryptography>=50.0.2",
+    "fastapi>=0.115",
+    "jinja2>=3.1",
+    "numpy>=2",
+    "pillow>=11",
+    "pypdfium2>=4.30",
+    "pystray>=0.19.5",
+    "python-multipart>=0.0.20",
+    "pyyaml>=6.0",
+    "uvicorn>=0.32",
+]
+
+[project.scripts]
+mail-agent = "mail_agent.cli:main"
+
+[project.optional-dependencies]
+stimme = [
+    "piper-tts==1.8.0",
+]
+sprache = [
+    "ctranslate2==4.8.3",
+    "faster-whisper==1.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28",
+    "mypy>=1.13",
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+    "types-pyyaml>=6.0.12.20261103",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mail_agent"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py313"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# Microsoft's Python guidance: PEP 8 and naming (E, W, N), docstrings checked like flake8-docstrings (D),
+# Pylint (PL), a complexity limit (C90) and security checks like Bandit (S); formatting like Black (ruff format).
+select = ["E", "W", "F", "I", "N", "UP", "B", "S", "SIM", "RUF", "PT", "PTH", "RET", "C4", "ERA", "D", "PL", "C90"]
+ignore = [
+    "RUF001", "RUF002", "RUF003",  # German umlauts and typographic dashes are intentional
+    "D105",  # magic methods (__eq__, __str__ …) explain themselves
+    "D107",  # __init__ may be documented in the class docstring (Google style)
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10  # McCabe's own recommendation; above it a function does too many things at once
+
+[tool.ruff.lint.pylint]
+max-args = 5  # Pylint's default: more arguments belong into a small parameter class
+
+[tool.ruff.lint.per-file-ignores]
+# Tests: plain asserts and fixed test values are fine, test names describe themselves, many fixtures are normal.
+"tests/**" = ["S101", "S105", "S106", "S107", "S108", "E501", "D", "PLR2004", "PLR0913", "PLR0917", "PLC0415"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+mypy_path = "src"
+packages = ["mail_agent"]
+
+[[tool.mypy.overrides]]
+module = ["pypdfium2", "piper", "piper.*", "pystray"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"

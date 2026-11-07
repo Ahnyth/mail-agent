@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-phishing-bank-01
+beschreibung: "Phishing: angebliche Bank verlangt Login über fremden Link"
+tags: [phishing, link]
+mail:
+  von: "Musterbank Kundenservice <sicherheit@musterbank-kundenservice.example>"
+  betreff: "Wichtig: Ihr Online-Banking-Zugang wurde vorübergehend eingeschränkt"
+  datum: "2026-10-20T03:12:00+02:00"
+  text: |
+    Sehr geehrter Kunde,
+
+    aufgrund ungewöhnlicher Aktivitäten wurde Ihr Online-Banking-Zugang vorübergehend eingeschränkt.
+    Um eine dauerhafte Sperrung zu vermeiden, bestätigen Sie bitte innerhalb von 24 Stunden Ihre Identität:
+
+    https://musterbank-verifizierung.example/login?id=88213
+
+    Nach erfolgreicher Bestätigung wird Ihr Zugang sofort wieder freigeschaltet.
+
+    Mit freundlichen Grüßen
+    Ihr Musterbank Sicherheitsteam
+soll:
+  kategorie: verdacht
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

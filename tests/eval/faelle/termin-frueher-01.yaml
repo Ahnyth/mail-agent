@@ -1,0 +1,22 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-frueher-01
+beschreibung: "Tochter bittet um früheren Morgeneinsatz wegen Tagespflege"
+tags: [angehoerige]
+mail:
+  von: "Anja Vogt <anja.vogt@mailbox.example>"
+  betreff: "Frühere Einsatzzeit für meine Mutter ab November?"
+  datum: "2026-10-26T12:15:00+01:00"
+  text: |
+    Hallo Frau Hoffmann,
+
+    meine Mutter, Frau Elisabeth Vogt, geht ab dem 9. November dienstags und donnerstags in die
+    Tagespflege. Der Fahrdienst holt sie dort schon um 8:00 Uhr ab.
+    Wäre es möglich, dass Ihre Kollegin an diesen beiden Tagen schon um 7:00 Uhr kommt statt um 8:30 Uhr?
+
+    Danke Ihnen und viele Grüße
+    Anja Vogt
+soll:
+  kategorie: termin
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

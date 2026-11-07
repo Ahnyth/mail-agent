@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: sonstiges-umfrage-01
+beschreibung: "Hochschule bittet um Teilnahme an einer Online-Umfrage"
+tags: [umfrage, hochschule, link]
+mail:
+  von: "Prof. Dr. Miriam Kessler <m.kessler@hs-musterstadt.example>"
+  betreff: "Bitte um Teilnahme: Studie zur Digitalisierung in der ambulanten Pflege"
+  datum: "2026-10-26T14:20:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    im Rahmen eines Forschungsprojekts des Studiengangs Pflegemanagement befragen wir ambulante
+    Pflegedienste zum Einsatz digitaler Dokumentation. Die Teilnahme dauert etwa 15 Minuten,
+    die Auswertung erfolgt anonym.
+
+    Zur Umfrage: https://umfrage.hs-musterstadt.example/pflege-digital
+
+    Herzlichen Dank für Ihre Unterstützung!
+    Prof. Dr. Miriam Kessler
+    Hochschule Musterstadt, Fachbereich Gesundheit
+soll:
+  kategorie: sonstiges
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung
+  warnung: false

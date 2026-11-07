@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: behoerde-gesundheitsamt-01
+beschreibung: "Gesundheitsamt kündigt Hygienebegehung an, Unterlagen bis 10.11., Bitte um Bestätigung"
+tags: [behoerde, hygiene, pruefung]
+mail:
+  von: "Gesundheitsamt Musterkreis <hygiene@musterkreis.example>"
+  betreff: "Ankündigung infektionshygienische Begehung gemäß § 23 IfSG"
+  datum: "2026-10-21T10:30:00+02:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    das Gesundheitsamt Musterkreis wird Ihren ambulanten Pflegedienst am Donnerstag,
+    19.11.2026, ab 9:00 Uhr infektionshygienisch begehen.
+
+    Bitte senden Sie uns vorab bis zum 10.11.2026 Ihren aktuellen Hygieneplan, den
+    Reinigungs- und Desinfektionsplan sowie den Nachweis der letzten Hygieneschulung zu.
+    Bitte bestätigen Sie uns den Termin kurz per E-Mail.
+
+    Mit freundlichen Grüßen
+    Im Auftrag
+    Karin Seidel
+    Gesundheitsamt Musterkreis, Sachgebiet Hygiene
+soll:
+  kategorie: behoerde
+  prioritaet: normal
+  entwurf: true
+  zustaendig: geschaeftsfuehrung
+  frist: true

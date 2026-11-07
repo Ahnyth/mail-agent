@@ -1,0 +1,32 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-rechnung-pdf-01
+beschreibung: Rechnung eines bekannten Lieferanten, Zahlungsdaten nur im PDF
+tags: [anhang, zahlung]
+mail:
+  von: "Sanitätshaus Lindner Buchhaltung <buchhaltung@sanitaetshaus-lindner.example>"
+  betreff: "Ihre Rechnung Oktober"
+  datum: "2026-10-30T08:12:00+01:00"
+  anhaenge:
+    - name: Rechnung_2026-0451.pdf
+      text: |
+        Sanitätshaus Lindner – Rechnung
+        Rechnungsnummer: 2026-0451
+        Rechnungsdatum: 30.10.2026
+        Lieferung Oktober: Verbandsmaterial und Einmalhandschuhe
+        Gesamtbetrag: 318,40 EUR
+        Zahlbar bis 13.11.2026 ohne Abzug auf
+        IBAN DE89 3704 0044 0532 0130 00
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    anbei erhalten Sie unsere Rechnung für die Lieferungen im Oktober.
+
+    Mit freundlichen Grüßen
+    Buchhaltung Sanitätshaus Lindner
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false
+  anhang_passt: true

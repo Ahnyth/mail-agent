@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: beschwerde-unfreundlich-01
+beschreibung: "Klientin beschwert sich über eine unfreundliche Pflegekraft"
+tags: [beschwerde, klient]
+mail:
+  von: "Brigitte Neumann <b.neumann@post-beispiel.example>"
+  betreff: "Beschwerde über eine Mitarbeiterin"
+  datum: "2026-10-28T14:03:00+01:00"
+  text: |
+    Sehr geehrte Frau Hoffmann,
+
+    ich möchte mich über die Pflegerin beschweren, die am Montag und Dienstag abends bei mir war.
+    Sie war sehr kurz angebunden, hat kaum mit mir gesprochen und mich beim Ausziehen
+    unsanft angefasst. Als ich etwas gesagt habe, meinte sie nur, sie habe keine Zeit für so etwas.
+
+    So möchte ich nicht behandelt werden. Ich bitte Sie, dass diese Pflegerin nicht mehr zu mir
+    kommt, und erwarte eine Rückmeldung.
+
+    Mit freundlichen Grüßen
+    Brigitte Neumann
+soll:
+  kategorie: beschwerde
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

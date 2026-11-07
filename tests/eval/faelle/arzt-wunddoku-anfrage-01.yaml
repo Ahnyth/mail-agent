@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: arzt-wunddoku-anfrage-01
+beschreibung: "Chirurgische Praxis bittet um aktuelle Wunddokumentation"
+tags: [arzt, wunde]
+mail:
+  von: "Chirurgische Praxis Dr. Sommerfeld <info@praxis-sommerfeld.example>"
+  betreff: "Wunddokumentation Frau Kraus"
+  datum: "2026-11-02T10:25:00+01:00"
+  text: |
+    Guten Tag,
+
+    Frau Edith Kraus hat bei uns demnächst wieder einen Kontrolltermin wegen ihres Ulcus am
+    rechten Unterschenkel. Könnten Sie uns vorab Ihre aktuelle Wunddokumentation inkl. Fotos
+    zusenden? Dann können wir den Verlauf besser beurteilen.
+
+    Vielen Dank und freundliche Grüße
+    Melanie Graf, MFA
+    Chirurgische Praxis Dr. Sommerfeld
+soll:
+  kategorie: arzt_verordnung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl
+  frist: false

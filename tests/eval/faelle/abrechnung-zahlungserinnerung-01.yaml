@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-zahlungserinnerung-01
+beschreibung: "Kollege leitet Zahlungserinnerung von Krause weiter und bittet um Prüfung"
+tags: [weiterleitung, lieferant, mahnung, mit-frage]
+mail:
+  von: "Tobias Klein <tobias.klein@musterpflege.example>"
+  betreff: "WG: Zahlungserinnerung Rechnung 46890"
+  datum: "2026-10-30T10:31:00+01:00"
+  text: |
+    Hi Lena, kannst du das bitte prüfen? Ich dachte, die hätten wir im September schon bezahlt. Danke, Tobi
+
+    ---------- Forwarded message ---------
+    Von: Medizinbedarf Krause GmbH <buchhaltung@medbedarf-krause.example>
+    Datum: Fr., 30. Okt. 2026 um 08:02 Uhr
+    Betreff: Zahlungserinnerung Rechnung 46890
+    An: <tobias.klein@musterpflege.example>
+
+    Sehr geehrte Damen und Herren,
+
+    sicher ist es Ihrer Aufmerksamkeit entgangen: Unsere Rechnung 46890 vom 03.09.2026
+    über 289,10 Euro ist noch offen. Bitte überweisen Sie den Betrag in den nächsten
+    10 Tagen auf IBAN DE12 5001 0517 0648 4898 90.
+
+    Mit freundlichen Grüßen, Medizinbedarf Krause GmbH
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Posteingang</h1>
+    <p class="muted">{{ counts.offen }} offen · {{ counts.dringend }} dringend · {{ counts.erledigt }} erledigt</p>
+  </div>
+  <form class="search" method="get" action="/" role="search">
+    <input type="search" name="q" value="{{ search }}" placeholder="Suchen: Absender, Betreff, Text …" aria-label="Nachrichten durchsuchen">
+    <input type="hidden" name="status" value="{{ active_status }}">
+    {% if active_category %}<input type="hidden" name="kategorie" value="{{ active_category.value }}">{% endif %}
+    {% if active_responsible %}<input type="hidden" name="zustaendig" value="{{ active_responsible.value }}">{% endif %}
+    {% if ai_filter %}<input type="hidden" name="ki" value="ausstehend">{% endif %}
+    <button class="btn" type="submit">Suchen</button>
+  </form>
+  <div class="actions">
+    <a class="btn" href="/briefing">Morgen-Briefing</a>
+    <form method="post" action="/einlesen">
+      <button class="btn btn-primary" type="submit"
+        {% if not fetch_enabled or (job and job.running) %}disabled{% endif %}
+        {% if not fetch_enabled %}title="Auf diesem PC ist der Abruf ausgeschaltet"{% endif %}>Neue Nachrichten einlesen</button>
+    </form>
+  </div>
+</section>
+
+{% if handover and handover.remote_newer %}
+<section class="flash flash-warn handover-banner">
+  <span>Am PC „{{ handover.remote_pc }}“ wurde zuletzt gearbeitet ({{ handover.remote_created | datum }}). Übernimm die Daten,
+    bevor du hier weiterarbeitest.</span>
+  <a class="btn btn-small btn-primary" href="/uebergabe">Zur Übergabe</a>
+</section>
+{% endif %}
+
+<section class="fetchbar" id="abruf" data-running="{{ 1 if job and job.running else 0 }}" aria-live="polite">
+  {% if job %}
+  <div class="job {% if job.error %}job-error{% elif not job.running %}job-done{% endif %}">
+    <div class="job-head">
+      <strong id="job-label">{{ job.label }}{% if job.trigger == "zeitplan" %} (automatisch){% endif %}</strong>
+      <span id="job-phase">{% if job.error %}{{ job.error_text }}{% elif job.running %}{{ job.phase_text }}{% else %}Fertig: {{ job.summary }}{% endif %}</span>
+    </div>
+    {% if job.running %}
+    <progress id="job-progress" max="{{ job.total or 1 }}" value="{{ job.done }}"></progress>
+    <p class="small muted" id="job-count">{% if job.total %}{{ job.done }} von {{ job.total }} · {{ job.imported }} neu{% if job.ai_pending %} · {{ job.ai_pending }} warten auf die KI{% endif %}{% else %}Suche läuft …{% endif %}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+  <p class="small muted fetch-info">
+    {% if not fetch_enabled and handover %}
+      <strong>Abruf auf diesem PC aus:</strong> Die Daten hat gerade der andere PC. Wer hier weiterarbeiten will, übernimmt
+      sie unter <a href="/uebergabe">Übergabe</a>.
+    {% elif not fetch_enabled %}
+      <strong>Abruf auf diesem PC ausgeschaltet.</strong> Nur ein PC ruft das Postfach ab, damit nichts doppelt
+      ausgewertet wird. Mit einem Übergabe-Ordner (<a href="/uebergabe">Übergabe</a>) wechselt das automatisch mit den
+      Daten; ohne ihn in <code>mail_agent.toml</code> unter <code>[fetch]</code> <code>enabled = true</code>.
+    {% else %}
+      {% if start_date %}Abruf ab {{ start_date.strftime("%d.%m.%Y") }} · {% endif %}
+      {% if last_run %}Letzter Abruf: {{ last_run.finished_at | datum }} ({{ last_run_trigger }}){% if last_run_error %} – <span class="error-text">{{ last_run_error }}</span>{% else %}, {{ last_run.imported }} neu{% endif %}{% else %}Noch kein Abruf{% endif %}
+      {% if next_run %} · Nächster automatischer Abruf: {{ next_run | datum }}{% elif fetch_times %} · Automatischer Abruf: {{ fetch_times | join(", ") }} Uhr{% endif %}
+      {% if sent_mailbox %} · Antworten im Ordner „{{ sent_mailbox }}“ werden erkannt{% elif sent_checked %} · Gesendet-Ordner nicht gefunden{% endif %}
+    {% endif %}
+  </p>
+</section>
+
+{% if counts.ki_ausstehend and uses_ai %}
+<section class="flash flash-warn ai-pending">
+  <span><strong>{{ counts.ki_ausstehend }}</strong> Nachricht{{ "en" if counts.ki_ausstehend != 1 }} wurde{{ "n" if counts.ki_ausstehend != 1 }} ohne KI eingeordnet (z. B. Abo-Kontingent erschöpft).
+  <a href="/?status=offen&ki=ausstehend">Anzeigen</a></span>
+  <form method="post" action="/ki-nachholen">
+    <button class="btn btn-small" type="submit" {% if job and job.running %}disabled{% endif %}>KI-Auswertung nachholen</button>
+  </form>
+</section>
+{% endif %}
+
+<nav class="filters" aria-label="Filter">
+  <div class="tabs">
+    {% for value, label in [("offen", "Offen"), ("erledigt", "Erledigt"), ("alle", "Alle")] %}
+      <a class="tab {% if active_status == value and not ai_filter %}active{% endif %}"
+         href="/?status={{ value }}{% if active_category %}&kategorie={{ active_category.value }}{% endif %}{% if active_responsible %}&zustaendig={{ active_responsible.value }}{% endif %}">{{ label }}</a>
+    {% endfor %}
+    {% if ai_filter %}<a class="tab active" href="/?status=offen&ki=ausstehend">KI ausstehend</a>{% endif %}
+  </div>
+  <div class="chips">
+    <a class="chip {% if not active_category %}active{% endif %}" href="/?status={{ active_status }}{% if active_responsible %}&zustaendig={{ active_responsible.value }}{% endif %}">Alle Kategorien</a>
+    {% for c in categories %}
+      {% set n = counts.get(c.value, 0) %}
+      <a class="chip cat-{{ c.value }} {% if active_category == c %}active{% endif %}"
+         href="/?status={{ active_status }}&kategorie={{ c.value }}{% if active_responsible %}&zustaendig={{ active_responsible.value }}{% endif %}">{{ c.label }}{% if n %} <b>{{ n }}</b>{% endif %}</a>
+    {% endfor %}
+    {% if counts.get("werbung", 0) %}
+    <form method="post" action="/werbung-erledigt" class="inline-action"
+          data-confirm="Alle {{ counts.get('werbung', 0) }} offenen Mails der Kategorie „Werbung / Newsletter“ als erledigt markieren?">
+      <button class="btn btn-small" type="submit">✓ Alle Werbung erledigen ({{ counts.get("werbung", 0) }})</button>
+    </form>
+    {% endif %}
+  </div>
+  <div class="chips chips-secondary" aria-label="Zuständigkeit">
+    <span class="muted small">Zuständig:</span>
+    <a class="chip {% if not active_responsible %}active{% endif %}" href="/?status={{ active_status }}{% if active_category %}&kategorie={{ active_category.value }}{% endif %}">alle</a>
+    {% for r in responsibles %}
+      {% set n = counts.get("zustaendig:" ~ r.value, 0) %}
+      <a class="chip {% if active_responsible == r %}active{% endif %}"
+         href="/?status={{ active_status }}&zustaendig={{ r.value }}{% if active_category %}&kategorie={{ active_category.value }}{% endif %}">{{ r.label }}{% if n %} <b>{{ n }}</b>{% endif %}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+{% if hidden_advertising %}
+<p class="small muted ads-note">{{ hidden_advertising }} Werbung ausgeblendet · <a href="/?{{ show_ads_query }}">anzeigen</a></p>
+{% elif showing_advertising %}
+<p class="small muted ads-note">Werbung wird angezeigt · <a href="/?{{ hide_ads_query }}">wieder ausblenden</a></p>
+{% endif %}
+
+{% if search %}
+<p class="search-result">{{ messages | length }} Treffer für „{{ search }}“ · <a href="/?{{ clear_query }}">Suche löschen</a></p>
+{% endif %}
+
+{% if messages %}
+<ul class="inbox">
+  {% for m in messages %}
+  <li class="item {% if m.urgency == high %}urgent{% endif %} {% if m.status.value == 'erledigt' %}done{% endif %}">
+    <a href="/nachrichten/{{ m.id }}?von={{ list_query | urlencode }}">
+      <div class="item-head">
+        <span class="badge urgency-{{ m.urgency.value }}">{{ m.urgency.value }}</span>
+        <span class="badge cat cat-{{ m.category.value }}">{{ m.category.label }}</span>
+        {% if m.responsible %}<span class="badge plain">{{ m.responsible.label }}</span>{% endif %}
+        {% if m.document_count %}<span class="badge plain">📎 {{ m.document_count }}</span>{% endif %}
+        {% if m.ai_pending %}<span class="badge warn">KI ausstehend</span>{% endif %}
+        {% if m.status.value == 'erledigt' %}<span class="badge plain">✓ erledigt</span>{% endif %}
+        {% if m.answered_at %}<span class="badge plain">beantwortet</span>{% endif %}
+        <span class="date">{{ m.received_at | datum }}</span>
+      </div>
+      <div class="item-title"><strong>{{ m.sender }}</strong> — {{ m.subject or "(ohne Betreff)" }}</div>
+      <div class="item-summary">{{ m.summary }}</div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="empty">
+  <p>Keine Nachrichten in dieser Ansicht.</p>
+  <p class="muted">Über „Neue Nachrichten einlesen“ werden Nachrichten aus der konfigurierten Quelle übernommen.</p>
+</div>
+{% endif %}
+{% endblock %}

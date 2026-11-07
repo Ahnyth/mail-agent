@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: bewerbung-pflegefachkraft-01
+beschreibung: "Bewerbung einer Pflegefachkraft mit Lebenslauf und Zeugnissen"
+tags: [bewerbung, anhang]
+mail:
+  von: "Julia Hartmann <julia.hartmann@mailbox.example>"
+  betreff: "Bewerbung als Pflegefachkraft (Teilzeit 75 %)"
+  datum: "2026-10-19T20:14:00+02:00"
+  anhaenge: [Anschreiben_Hartmann.pdf, Lebenslauf_Hartmann.pdf, Examenszeugnis_Hartmann.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    auf Ihrer Internetseite habe ich gelesen, dass Sie Pflegefachkräfte für die ambulante
+    Versorgung suchen. Ich bin seit 2019 examinierte Pflegefachfrau und arbeite derzeit in der
+    stationären Langzeitpflege. Ich möchte gern in die ambulante Pflege wechseln, idealerweise
+    in Teilzeit mit 75 %, frühestens zum 01.01.2027.
+
+    Anschreiben, Lebenslauf und Examenszeugnis finden Sie im Anhang.
+    Über eine Einladung zum Gespräch freue ich mich.
+
+    Mit freundlichen Grüßen
+    Julia Hartmann
+    Tel. 0160 0000000
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal
+  warnung: false
+  frist: false

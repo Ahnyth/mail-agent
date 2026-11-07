@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-m365-passwort-01
+beschreibung: "Phishing: Microsoft-365-Passwort angeblich abgelaufen, Link auf fremde Domain"
+tags: [phishing, link, passwort]
+mail:
+  von: "Microsoft 365 Admin <it-support@m365-kontoservice.example>"
+  betreff: "Ihr Kennwort für buero@musterpflege.example läuft heute ab"
+  datum: "2026-10-27T06:45:00+01:00"
+  html: false
+  text: |
+    Microsoft 365
+
+    Das Kennwort für Ihr Postfach buero@musterpflege.example läuft heute ab.
+    Wenn Sie es nicht aktualisieren, werden eingehende Nachrichten zurückgehalten.
+
+    Aktuelles Kennwort beibehalten:
+    https://m365-kontoservice.example/keep-password?user=buero
+
+    Diese Nachricht wurde von Ihrem Administrator gesendet.
+    © Microsoft 365 Security
+soll:
+  kategorie: verdacht
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

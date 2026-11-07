@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: beschwerde-verspaetung-01
+beschreibung: "Angehöriger beschwert sich über wiederholt verspätete Morgeneinsätze"
+tags: [beschwerde, angehoerige]
+mail:
+  von: "Thomas Engel <thomas.engel@mailbox.example>"
+  betreff: "Schon wieder zu spät"
+  datum: "2026-10-20T09:22:00+02:00"
+  text: |
+    Guten Tag,
+
+    jetzt ist es diese Woche schon das zweite Mal, dass die Pflegekraft bei meiner Mutter
+    (Frau Marianne Engel) erst gegen 9:45 Uhr kam statt um 8 Uhr. Meine Mutter sitzt dann
+    seit 6 Uhr wach im Bett und wartet, sie kann ja nicht allein aufstehen.
+    Angerufen hat auch niemand.
+
+    Ich bitte darum, dass das geklärt wird. Was ist da los bei Ihnen?
+
+    Thomas Engel
+soll:
+  kategorie: beschwerde
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

@@ -1,0 +1,46 @@
+# Bekannte Absender für die Testsammlung (alle Firmen, Domains und Bankverbindungen sind erfunden).
+# Aufbau wie config/bekannte_absender.yaml. Die Auswertung nutzt diese Liste, damit die Ergebnisse
+# nicht von der echten Absenderliste abhängen.
+
+eigene_domains:
+  - musterpflege.example
+
+absender:
+  - name: AOK Musterland
+    typ: kostentraeger
+    domains: [aok-musterland.example]
+  - name: BKK Beispiel Pflegekasse
+    typ: kostentraeger
+    domains: [bkk-beispiel.example]
+  - name: Medizinischer Dienst Musterland
+    typ: kostentraeger
+    domains: [md-musterland.example]
+  - name: Abrechnungszentrum Nord
+    typ: abrechnungsdienst
+    domains: [abrechnung-nord.example]
+  - name: Sanitätshaus Lindner
+    typ: lieferant
+    domains: [sanitaetshaus-lindner.example]
+    iban: [DE89 3704 0044 0532 0130 00]
+  - name: Medizinbedarf Krause
+    typ: lieferant
+    domains: [medbedarf-krause.example]
+    iban: [DE12 5001 0517 0648 4898 90]
+  - name: Bürobedarf Schmitt
+    typ: lieferant
+    domains: [buero-schmitt.example]
+  - name: Landratsamt Musterkreis
+    typ: behoerde
+    domains: [musterkreis.example]
+  - name: Hausarztpraxis Dr. Beispiel
+    typ: arzt
+    domains: [praxis-beispiel.example]
+  - name: Kanzlei Musterrecht
+    typ: anwalt
+    domains: [kanzlei-musterrecht.example]
+  - name: Pflege aktuell (Newsletter)
+    typ: newsletter
+    domains: [pflege-aktuell.example]
+  - name: Lesewelt (Newsletter)
+    typ: newsletter
+    adressen: [news@lesewelt.example]

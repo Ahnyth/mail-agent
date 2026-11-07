@@ -1,0 +1,22 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: intern-krankmeldung-01
+beschreibung: "Pflegekraft meldet sich am Sonntagabend für den Frühdienst am Montag krank"
+tags: [intern, krankmeldung, kurz]
+mail:
+  von: "Marco Schulz <marco.schulz@musterpflege.example>"
+  betreff: "krank morgen"
+  datum: "2026-11-01T20:34:00+01:00"
+  text: |
+    Hallo Sandra,
+
+    sorry, ich hab seit heute Nachmittag Fieber und Magen-Darm, ich kann morgen den
+    Frühdienst (Tour 2) nicht machen. Gehe morgen früh zum Arzt, AU kommt dann.
+
+    Gruß Marco
+soll:
+  kategorie: intern
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: pdl
+  warnung: false
+  frist: false

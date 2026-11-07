@@ -1,0 +1,22 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-ohne-abmeldung-01
+beschreibung: "Werbemail für Arbeitskleidung ohne Abmelde-Hinweis"
+tags: [werbung, ohne-abmeldung]
+mail:
+  von: "Berufsmode Weiss <angebote@berufsmode-weiss.example>"
+  betreff: "Herbst-Aktion Kasacks und Pflegehosen – nur diese Woche"
+  datum: "2026-10-30T07:45:00+01:00"
+  text: |
+    Guten Tag,
+
+    nur bis Sonntag: 20 % auf alle Kasacks, Pflegehosen und Softshelljacken.
+    Ab 10 Teilen besticken wir Ihr Logo kostenlos.
+
+    Jetzt bestellen unter berufsmode-weiss.example oder telefonisch unter 0800 0000000.
+
+    Ihr Team von Berufsmode Weiss
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung

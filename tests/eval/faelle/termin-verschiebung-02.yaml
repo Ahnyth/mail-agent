@@ -1,0 +1,17 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-verschiebung-02
+beschreibung: "Sehr kurze Bitte ohne Anrede, Einsatz nächsten Dienstag später"
+tags: [kurz, unordentlich]
+mail:
+  von: "Klaus Neumann <k.neumann@funkpost.example>"
+  betreff: "AW: Einsatzplan"
+  datum: "2026-10-29T19:40:00+01:00"
+  text: |
+    dienstag nächste woche bitte erst um 10, physio kommt um 8:30.
+    geht das? sonst mittwoch wie immer
+    gruß K. Neumann
+soll:
+  kategorie: termin
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

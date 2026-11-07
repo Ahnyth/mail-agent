@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-iban-abweichend-01
+beschreibung: Bekannter Lieferant, im PDF steht eine andere IBAN als hinterlegt
+tags: [anhang, zahlung, phishing]
+mail:
+  von: "Sanitätshaus Lindner <buchhaltung@sanitaetshaus-lindner.example>"
+  betreff: "Rechnung 2026-0460"
+  datum: "2026-11-02T07:55:00+01:00"
+  anhaenge:
+    - name: Rechnung_2026-0460.pdf
+      text: |
+        Sanitätshaus Lindner – Rechnung
+        Rechnungsnummer: 2026-0460
+        Gesamtbetrag: 2.940,00 EUR
+        Wichtig: Bitte nur noch auf unser neues Konto zahlen.
+        IBAN DE44 5001 0517 5407 3249 31
+        Zahlbar sofort.
+  text: |
+    Guten Morgen,
+
+    anbei die Rechnung. Bitte beachten Sie die Zahlungshinweise im Dokument.
+
+    Viele Grüße
+    Sanitätshaus Lindner
+soll:
+  kategorie: verdacht
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

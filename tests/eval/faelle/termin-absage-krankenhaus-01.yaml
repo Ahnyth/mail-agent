@@ -1,0 +1,23 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-absage-krankenhaus-01
+beschreibung: "Ehefrau sagt Einsätze ab, Klient seit der Nacht im Krankenhaus"
+tags: [angehoerige, krankenhaus]
+mail:
+  von: "Ingrid Beispiel <ingrid.beispiel@post-beispiel.example>"
+  betreff: "Heinz ist im Krankenhaus – bitte heute nicht kommen"
+  datum: "2026-10-23T06:51:00+02:00"
+  text: |
+    Guten Morgen,
+
+    mein Mann Heinz ist heute Nacht gestürzt und mit dem Rettungswagen ins Klinikum
+    gebracht worden. Er bleibt erst mal dort. Bitte heute früh und bis auf Weiteres nicht kommen.
+
+    Ich melde mich, sobald ich weiß, wann er entlassen wird. Muss ich sonst noch etwas tun?
+
+    Ingrid Beispiel
+    0151 0000002
+soll:
+  kategorie: termin
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: pdl

@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-eigenanteil-01
+beschreibung: "Angehörige fragt nach Positionen der Eigenanteil-Rechnung"
+tags: [angehoerige, eigenanteil]
+mail:
+  von: "Renate Kraus <renate.kraus@mailbox.example>"
+  betreff: "Frage zur Rechnung für meine Mutter (September)"
+  datum: "2026-10-23T17:26:00+02:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    wir haben die Rechnung über den Eigenanteil für meine Mutter, Frau Edith Kraus, für September
+    bekommen – 186,40 Euro. Im August waren es nur 92 Euro, obwohl sich an der Versorgung
+    nichts geändert hat. Können Sie mir erklären, wie der Betrag zustande kommt?
+    Und wird der Entlastungsbetrag schon abgezogen?
+
+    Mit freundlichen Grüßen
+    Renate Kraus
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: abrechnung
+  warnung: false

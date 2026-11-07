@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-html-01
+beschreibung: "HTML-Newsletter eines Pflegehilfsmittel-Shops"
+tags: [newsletter, html]
+mail:
+  von: "PflegeShop24 <newsletter@pflegeshop24.example>"
+  betreff: "Nur heute: Gratis-Versand auf Pflegehilfsmittel"
+  datum: "2026-11-02T06:30:00+01:00"
+  html: true
+  text: |
+    <html><body style="font-family:Arial,sans-serif">
+    <h1 style="color:#2a7ab0">Gratis-Versand – nur heute!</h1>
+    <p>Liebe Kundin, lieber Kunde,</p>
+    <p>auf alle <b>Pflegehilfsmittel zum Verbrauch</b> – Handschuhe, Desinfektion, Bettschutzeinlagen –
+    sparen Sie heute die Versandkosten.</p>
+    <p><a href="https://pflegeshop24.example/aktion">Jetzt zum Angebot</a></p>
+    <p style="font-size:11px;color:#888">Sie möchten keine Newsletter mehr erhalten?
+    <a href="https://pflegeshop24.example/abmelden">Hier abmelden</a></p>
+    </body></html>
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung

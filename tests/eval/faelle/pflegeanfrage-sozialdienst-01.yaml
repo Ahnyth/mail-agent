@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-sozialdienst-01
+beschreibung: "Klinik-Sozialdienst sucht Versorgung nach Entlassung in drei Tagen"
+tags: [klinik, entlassung, eilig]
+mail:
+  von: "Sozialdienst Klinikum Musterstadt <sozialdienst@klinikum-musterstadt.example>"
+  betreff: "Anfrage Überleitung häusliche Pflege – Entlassung Freitag 23.10."
+  datum: "2026-10-20T10:05:00+02:00"
+  anhaenge: [Ueberleitungsbogen_Vogel.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    wir suchen für unsere Patientin Frau Hildegard Vogel (86 J.) eine ambulante Versorgung
+    ab Entlassung am Freitag, 23.10.2026. Benötigt werden Grundpflege morgens und abends
+    sowie Medikamentengabe und Kompressionsstrümpfe (Verordnung folgt durch Hausarzt).
+    Ein Pflegegrad 3 liegt vor. Der Überleitungsbogen ist angehängt.
+
+    Bitte geben Sie uns bis morgen, 21.10., 12 Uhr Rückmeldung, ob Sie die Versorgung übernehmen können.
+
+    Mit freundlichen Grüßen
+    Claudia Reimann
+    Sozialdienst, Klinikum Musterstadt
+    Tel. 0300 0000000
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: pdl
+  warnung: false
+  frist: true

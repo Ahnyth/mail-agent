@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-verordnung-falsch-01
+beschreibung: Praxis schickt Verordnung, das PDF gehört zu einer anderen Patientin
+tags: [anhang]
+mail:
+  von: "Hausarztpraxis Dr. Beispiel <praxis@praxis-beispiel.example>"
+  betreff: "Verordnung HKP Frau Schneider"
+  datum: "2026-10-30T13:02:00+01:00"
+  anhaenge:
+    - name: Verordnung_Schneider.pdf
+      text: |
+        Verordnung häuslicher Krankenpflege (Muster 12)
+        Versicherte: Gertrud Weber, geb. 01.01.1940
+        Leistung: Wundversorgung 1x täglich
+        Zeitraum: 02.11.2026 bis 30.11.2026
+  text: |
+    Sehr geehrtes Pflegeteam,
+
+    anbei die Verordnung häuslicher Krankenpflege für Frau Schneider ab Montag.
+    Das Original folgt per Post.
+
+    Mit kollegialen Grüßen
+    Praxis Dr. Beispiel
+soll:
+  kategorie: arzt_verordnung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl
+  anhang_passt: false

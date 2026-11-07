@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-falsche-rechnung-01
+beschreibung: "Gefälschte Rechnung eines unbekannten Absenders mit Inkasso-Drohung"
+tags: [fake-rechnung, iban, geldrisiko, inkasso]
+mail:
+  von: "Branchenverzeichnis Pflege Deutschland <rechnung@pflegeverzeichnis-de.example>"
+  betreff: "RECHNUNG 2026-77412 – Zahlung sofort fällig"
+  datum: "2026-10-26T05:58:00+01:00"
+  anhaenge: [Rechnung_2026-77412.pdf.zip]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    für Ihren Premium-Eintrag im Branchenverzeichnis Pflege Deutschland (Laufzeit 12 Monate)
+    stellen wir Ihnen 1.189,00 Euro in Rechnung.
+    Der Betrag ist SOFORT fällig. Überweisen Sie bitte umgehend auf:
+    IBAN DE75 5121 0800 1245 1261 99
+
+    Erfolgt kein Zahlungseingang innerhalb von 48 Stunden, wird die Forderung ohne weitere
+    Mahnung an unser Inkassobüro übergeben. Es entstehen Ihnen dann erhebliche Zusatzkosten.
+
+    Buchhaltung
+    Branchenverzeichnis Pflege Deutschland
+soll:
+  kategorie: verdacht
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

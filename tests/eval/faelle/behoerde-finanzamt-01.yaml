@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: behoerde-finanzamt-01
+beschreibung: "Finanzamt kündigt Lohnsteuer-Außenprüfung an, Unterlagen bis 20.11."
+tags: [behoerde, finanzamt, pruefung]
+mail:
+  von: "Finanzamt Musterstadt <poststelle@finanzamt-musterstadt.example>"
+  betreff: "Prüfungsanordnung Lohnsteuer-Außenprüfung – Steuernummer 000/000/00000"
+  datum: "2026-10-28T09:50:00+01:00"
+  anhaenge: [Pruefungsanordnung_LSt.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    beigefügt erhalten Sie vorab die Prüfungsanordnung für eine Lohnsteuer-Außenprüfung
+    für den Zeitraum 01.01.2023 bis 31.12.2025. Die Prüfung beginnt am 07.12.2026 in Ihren
+    Geschäftsräumen. Das Original geht Ihnen auf dem Postweg zu.
+
+    Bitte halten Sie die Lohnkonten und Lohnunterlagen bereit und stellen Sie uns die
+    digitalen Lohndaten im Format DLS bis zum 20.11.2026 zur Verfügung.
+
+    Mit freundlichen Grüßen
+    Im Auftrag
+    Herr Schröder, Betriebsprüfungsstelle
+soll:
+  kategorie: behoerde
+  prioritaet: normal
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  frist: true

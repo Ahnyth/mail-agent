@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-md-begutachtung-01
+beschreibung: "Medizinischer Dienst kündigt Hausbesuch zur Begutachtung in gut drei Wochen an"
+tags: [medizinischer-dienst, begutachtung]
+mail:
+  von: "Medizinischer Dienst Musterland <termine@md-musterland.example>"
+  betreff: "Einladung zur Pflegebegutachtung – Frau Gertrud Lange"
+  datum: "2026-10-27T09:30:00+01:00"
+  anhaenge: [Einladung_Begutachtung_Lange.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    im Auftrag der Pflegekasse führen wir bei Ihrer Klientin Frau Gertrud Lange eine
+    Begutachtung zur Feststellung der Pflegebedürftigkeit (Höherstufungsantrag) durch.
+
+    Termin: Mittwoch, 18.11.2026, 10:30 Uhr, in der Wohnung der Versicherten.
+
+    Wir bitten darum, dass nach Möglichkeit eine Pflegefachkraft anwesend ist und die
+    Pflegedokumentation bereitliegt.
+
+    Mit freundlichen Grüßen
+    Medizinischer Dienst Musterland
+    Begutachtung Pflege
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl

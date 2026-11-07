@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: behoerde-sozialamt-bescheid-01
+beschreibung: "Landratsamt bewilligt Hilfe zur Pflege teilweise, Widerspruchsfrist ein Monat"
+tags: [behoerde, bescheid, widerspruch, bekannter-absender]
+mail:
+  von: "Landratsamt Musterkreis – Sozialamt <hilfe-zur-pflege@musterkreis.example>"
+  betreff: "Bescheid Hilfe zur Pflege nach SGB XII – Frau Marianne Engel, Az. 50.2-1147/26"
+  datum: "2026-10-23T11:15:00+02:00"
+  anhaenge: [Bescheid_HzP_Engel.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    als Leistungserbringer erhalten Sie zur Kenntnis eine Kopie unseres Bescheides über
+    Hilfe zur Pflege für Frau Marianne Engel. Die Kosten der häuslichen Pflege werden ab
+    01.10.2026 übernommen, soweit sie die Leistungen der Pflegekasse übersteigen; für die
+    beantragten zusätzlichen Betreuungsstunden wird die Übernahme abgelehnt.
+
+    Gegen diesen Bescheid kann innerhalb eines Monats nach Bekanntgabe Widerspruch beim
+    Landratsamt Musterkreis erhoben werden.
+
+    Mit freundlichen Grüßen
+    Landratsamt Musterkreis, Sozialamt
+soll:
+  kategorie: behoerde
+  prioritaet: normal
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: false
+  frist: true

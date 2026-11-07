@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: arzt-entlassbericht-01
+beschreibung: "Klinik sendet vorläufigen Entlassbericht, Entlassung morgen"
+tags: [klinik, entlassung]
+mail:
+  von: "Station 4B Klinikum Musterstadt <station4b@klinikum-musterstadt.example>"
+  betreff: "Vorläufiger Entlassbericht Herr Heinz Beispiel – Entlassung 30.10."
+  datum: "2026-10-29T14:10:00+01:00"
+  anhaenge: [Entlassbericht_vorlaeufig_Beispiel.pdf, Medikationsplan_Entlassung.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    Herr Heinz Beispiel wird morgen, am 30.10.2026, gegen 11 Uhr per Krankentransport nach Hause entlassen.
+    Anbei der vorläufige Entlassbericht sowie der aktuelle Medikationsplan.
+    Nach der Versorgung der Unterarmfraktur ist ein Verbandwechsel alle zwei Tage vorgesehen,
+    Medikamente sind für drei Tage mitgegeben.
+
+    Mit freundlichen Grüßen
+    Pflegeteam Station 4B
+    Klinikum Musterstadt
+soll:
+  kategorie: arzt_verordnung
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: pdl

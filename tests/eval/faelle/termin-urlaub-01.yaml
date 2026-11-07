@@ -1,0 +1,23 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-urlaub-01
+beschreibung: "Klientin ist zwei Wochen bei ihrer Tochter, Einsätze pausieren"
+tags: [klient, pause]
+mail:
+  von: "Hannelore Schulze <h.schulze@post-beispiel.example>"
+  betreff: "Urlaub bei meiner Tochter"
+  datum: "2026-10-28T15:37:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    ich fahre vom 16.11. bis einschließlich 29.11. zu meiner Tochter nach Hamburg.
+    In dieser Zeit brauche ich also keine Hilfe. Ab dem 30.11. dann bitte wieder wie gewohnt.
+
+    Bitte bestätigen Sie mir das kurz, damit ich beruhigt fahren kann.
+
+    Freundliche Grüße
+    Hannelore Schulze
+soll:
+  kategorie: termin
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

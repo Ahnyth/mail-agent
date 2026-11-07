@@ -1,0 +1,23 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-klient-01
+beschreibung: "Älterer Herr fragt selbst nach Hilfe beim Duschen, mit Tippfehlern"
+tags: [unordentlich, klient]
+mail:
+  von: "Werner Fischer <w.fischer1946@mailbox.example>"
+  betreff: "Hilfe beim duschen"
+  datum: "2026-10-30T11:02:00+01:00"
+  text: |
+    Sehr geehrte damen und herren
+
+    ich bin 80 jahre und schafe das duschen nicht mehr allein, meine frau kann mir
+    nicht mehr helfen wegen ihrem Rücken. Kommen sie auch zweimal in der woche zum duschen?
+    Was kostet das und zahlt das die kasse? Pflegegrad habe ich keinen.
+
+    mit freundlichem gruß
+    Werner Fischer
+    Tel 0300 0000001
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-genehmigung-hkp-01
+beschreibung: "Mitarbeiterin leitet HKP-Genehmigung der BKK kommentarlos ans Büro weiter"
+tags: [weiterleitung, kostentraeger]
+mail:
+  von: "Jana Peters <jana.peters@musterpflege.example>"
+  betreff: "WG: Genehmigung häusliche Krankenpflege Herr Hahn"
+  datum: "2026-10-22T16:12:00+02:00"
+  anhaenge: [Genehmigung_HKP_Hahn.pdf]
+  text: |
+    ---------- Forwarded message ---------
+    Von: BKK Beispiel Pflegekasse <pflege@bkk-beispiel.example>
+    Datum: Do., 22. Okt. 2026 um 14:03 Uhr
+    Betreff: Genehmigung häusliche Krankenpflege Herr Hahn
+    An: <jana.peters@musterpflege.example>
+
+    Sehr geehrte Damen und Herren,
+
+    die Verordnung häuslicher Krankenpflege (Medikamentengabe 2x täglich) für unseren
+    Versicherten Herrn Werner Hahn genehmigen wir für den Zeitraum 19.10.2026 bis 31.12.2026.
+    Die Genehmigung liegt als PDF bei.
+
+    Mit freundlichen Grüßen
+    BKK Beispiel Pflegekasse
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl

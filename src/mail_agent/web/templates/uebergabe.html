@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Übergabe{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Übergabe zwischen den PCs</h1>
+    <p class="muted">Der Arbeitsstand (alle Mails, Entwürfe, Erledigt-Markierungen, Korrekturen, bekannte Absender) wandert als
+      eine verschlüsselte Datei über einen Cloud-Ordner. Nur der PC, der die Daten gerade hat, ruft das Postfach ab.
+      Dieser PC: <strong>{{ pc }}</strong>.</p>
+  </div>
+</section>
+
+{% if error %}<p class="flash flash-warn" role="alert">{{ error }}</p>{% endif %}
+
+{% if not available %}
+<section class="card"><p>Die Übergabe gibt es nur mit dem echten Postfach (IMAP).</p></section>
+{% else %}
+<section class="card handover-status">
+  <h2>Stand</h2>
+  {% if not state.folder %}
+    <p>Noch kein Übergabe-Ordner eingestellt.</p>
+  {% else %}
+    <p>Ordner: <code>{{ state.folder }}</code></p>
+    {% if active %}
+      <p class="ok-text"><strong>Dieser PC hat die Daten</strong> und ruft das Postfach ab.
+        {% if state.last_export %}Zuletzt übergeben: {{ last_export | datum }}{% else %}Noch nichts übergeben.{% endif %}
+        {% if state.changed %} · Neue Änderungen werden in Kürze übergeben.{% endif %}</p>
+      <form method="post" action="/uebergabe/jetzt">
+        <button class="btn btn-primary" type="submit">Jetzt übergeben</button>
+        <span class="small muted">Das passiert auch von selbst: nach jedem Abruf und eine Minute nach jeder Änderung.</span>
+      </form>
+    {% else %}
+      <p><strong>Dieser PC hat die Daten abgegeben</strong> und ruft nicht ab.</p>
+    {% endif %}
+    {% if remote %}
+      <p class="small muted">Im Ordner: Stand {{ remote.generation }} vom PC „{{ remote.pc }}“, {{ remote_created | datum }},
+        {{ remote.messages }} Mails.</p>
+    {% else %}
+      <p class="small muted">Im Ordner liegt noch keine Übergabe-Datei.</p>
+    {% endif %}
+    {% if not active and remote %}
+      <form method="post" action="/uebergabe/uebernehmen"
+            data-confirm="Daten vom PC „{{ remote.pc }}“ übernehmen? Die bisherigen Daten auf diesem PC werden als Sicherung aufbewahrt. Danach ruft dieser PC ab.">
+        <button class="btn btn-primary" type="submit" {% if busy %}disabled{% endif %}>Übergabe übernehmen</button>
+        {% if busy %}<span class="small muted">Erst wenn der laufende Abruf fertig ist.</span>{% endif %}
+      </form>
+    {% endif %}
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>Übergabe-Ordner</h2>
+  <p class="small muted">Ein Ordner, den <strong>beide</strong> PCs sehen, z. B. in Google Drive oder Dropbox (mit demselben Konto
+    angemeldet). Auf beiden PCs denselben Ordner wählen.</p>
+  <form method="post" action="/uebergabe/ordner" class="sender-form">
+    <label class="wide">Ordner <input name="ordner" value="{{ state.folder or (suggestions[0] if suggestions else '') }}" required maxlength="400"
+      placeholder="z. B. G:\Meine Ablage\MailAgent-Uebergabe"></label>
+    {% if suggestions %}
+      <p class="small muted wide">Gefunden: {% for s in suggestions %}<code>{{ s }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+    {% else %}
+      <p class="small muted wide">Auf diesem PC wurde weder Google Drive noch Dropbox gefunden. Bitte zuerst „Google Drive für
+        Desktop“ installieren und anmelden.</p>
+    {% endif %}
+    <button class="btn" type="submit">Ordner speichern</button>
+  </form>
+</section>
+{% endif %}
+{% endblock %}

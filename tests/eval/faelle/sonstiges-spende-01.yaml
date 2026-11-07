@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: sonstiges-spende-01
+beschreibung: "Sportverein bittet um Spende für neue Trikots der Jugendmannschaft"
+tags: [spende, verein]
+mail:
+  von: "Uli Hartwig <jugend@tsv-musterstadt.example>"
+  betreff: "Spendenanfrage Trikots E-Jugend"
+  datum: "2026-10-20T19:30:00+02:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    ich bin Jugendtrainer beim TSV Musterstadt. Unsere E-Jugend braucht dringend neue Trikots,
+    und wir suchen dafür Unterstützer aus der Region. Für eine Spende ab 150 Euro drucken wir
+    gern Ihr Logo auf den Trikotärmel.
+
+    Hätten Sie Interesse? Über eine kurze Rückmeldung würden wir uns sehr freuen.
+
+    Sportliche Grüße
+    Uli Hartwig
+    Jugendabteilung TSV Musterstadt
+soll:
+  kategorie: sonstiges
+  prioritaet: niedrig
+  entwurf: true
+  zustaendig: verwaltung

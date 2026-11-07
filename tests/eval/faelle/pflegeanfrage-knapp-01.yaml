@@ -1,0 +1,18 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-knapp-01
+beschreibung: "Sehr knappe Anfrage ohne Anrede vom Handy"
+tags: [kurz, unordentlich]
+mail:
+  von: "<m.yilmaz87@funkpost.example>"
+  betreff: "pflege"
+  datum: "2026-10-27T21:13:00+01:00"
+  text: |
+    hallo brauchen pflegedienst für oma, pflegegrad 3, wohnt in musterstadt
+    bitte zurückrufen 0176 0000000
+
+    Von meinem Smartphone gesendet
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

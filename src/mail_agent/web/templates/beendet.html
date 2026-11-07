@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beendet · MailAgent</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="logo" aria-hidden="true">M</span> MailAgent</span>
+  </header>
+  <main class="container">
+    <section class="card quit-card">
+      <h1>Der MailAgent ist beendet</h1>
+      <p>Dieses Fenster kann geschlossen werden. Solange der Agent aus ist, holt er keine Mails ab; einen verpassten
+        Abruf holt er beim nächsten Start nach.</p>
+      <p><strong>Wieder starten:</strong> Doppelklick auf „MailAgent“ auf dem Desktop. Nach der nächsten
+        Windows-Anmeldung startet er auch von selbst.</p>
+    </section>
+  </main>
+</body>
+</html>

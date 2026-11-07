@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-rueckfrage-unterlagen-01
+beschreibung: "BKK fordert Pflegeplanung und Wunddoku binnen vier Tagen per Mail an"
+tags: [kostentraeger, frist-kurz]
+mail:
+  von: "BKK Beispiel Pflegekasse <pflege@bkk-beispiel.example>"
+  betreff: "Rückfrage zum Antrag auf Behandlungspflege – Herr Werner Hahn"
+  datum: "2026-10-26T10:40:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    zur Prüfung der Verordnung häuslicher Krankenpflege (Wundversorgung) für unseren
+    Versicherten Herrn Werner Hahn benötigen wir noch folgende Unterlagen:
+
+    - aktuelle Pflegeplanung
+    - Wunddokumentation der letzten vier Wochen
+
+    Bitte senden Sie uns diese bis spätestens 30.10.2026 per E-Mail an pflege@bkk-beispiel.example.
+    Ohne die Unterlagen können wir über den Antrag leider nicht entscheiden.
+
+    Freundliche Grüße
+    Markus Thiel
+    BKK Beispiel Pflegekasse
+soll:
+  kategorie: kasse_md
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: pdl
+  frist: true

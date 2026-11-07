@@ -1,0 +1,23 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: termin-zusatzeinsatz-01
+beschreibung: "Angehöriger bittet um zusätzliche Einsätze am Wochenende wegen Familienfeier"
+tags: [angehoerige]
+mail:
+  von: "Michael Lehmann <michael.lehmann@mailbox.example>"
+  betreff: "Zusätzlicher Einsatz Wochenende 14./15.11."
+  datum: "2026-11-02T08:05:00+01:00"
+  text: |
+    Guten Morgen zusammen,
+
+    am Wochenende 14./15. November feiern wir den 90. Geburtstag meines Vaters, Herrn Fritz Lehmann.
+    Könnten Sie an beiden Tagen zusätzlich am frühen Abend (ca. 18 Uhr) kommen und ihn
+    fürs Bett fertig machen? Wir sind dann alle unterwegs.
+    Falls das extra kostet, ist das in Ordnung.
+
+    Beste Grüße
+    Michael Lehmann
+soll:
+  kategorie: termin
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-bewerbung-pdf-01
+beschreibung: Bewerbung, Lebenslauf und Zeugnis in einer PDF-Datei
+tags: [anhang]
+mail:
+  von: "Jana Beispiel <jana.beispiel@mail.example>"
+  betreff: "Bewerbung Pflegefachkraft Intensivpflege"
+  datum: "2026-10-31T19:05:00+01:00"
+  anhaenge:
+    - name: Unterlagen_Beispiel.pdf
+      text: |
+        Lebenslauf – Jana Beispiel
+        Berufserfahrung: 2019–2026 Pflegefachkraft, Intensivstation Klinikum Musterstadt
+        Ausbildung: Examen Gesundheits- und Krankenpflegerin 2019
+        Arbeitszeugnis Klinikum Musterstadt: stets zu unserer vollsten Zufriedenheit
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    ich bewerbe mich als Pflegefachkraft für die außerklinische Intensivpflege. Meine Unterlagen
+    habe ich in einer PDF-Datei zusammengefasst.
+
+    Mit freundlichen Grüßen
+    Jana Beispiel
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal
+  anhang_passt: true

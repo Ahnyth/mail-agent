@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-paket-01
+beschreibung: "Paket-Phishing mit angeblicher Nachgebühr und Link"
+tags: [phishing, link, paket]
+mail:
+  von: "Paketzustellung <info@paket-zustellung-status.example>"
+  betreff: "Ihre Sendung konnte nicht zugestellt werden"
+  datum: "2026-10-31T16:21:00+01:00"
+  text: |
+    Hallo,
+
+    Ihr Paket mit der Sendungsnummer 00340434161094042557 konnte nicht zugestellt werden,
+    da die Adresse unvollständig ist. Bitte bestätigen Sie Ihre Adresse und zahlen Sie die
+    Zustellgebühr von 1,99 EUR, sonst geht das Paket an den Absender zurück:
+
+    http://paket-zustellung-status.example/track/neu-zustellen
+
+    Ihr Zustellteam
+soll:
+  kategorie: verdacht
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

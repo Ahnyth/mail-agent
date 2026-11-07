@@ -1,0 +1,24 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: bewerbung-initiativ-01
+beschreibung: "Initiativbewerbung, die Unterlagen 'anbei' nennt, aber keinen Anhang hat"
+tags: [bewerbung, anhang-fehlt]
+mail:
+  von: "Dennis Wolf <dennis.wolf@funkpost.example>"
+  betreff: "Initiativbewerbung Pflegehelfer"
+  datum: "2026-10-24T13:07:00+02:00"
+  text: |
+    Hallo,
+
+    hiermit bewerbe ich mich initiativ als Pflegehelfer bei Ihnen. Ich habe die einjährige
+    Ausbildung zum Pflegehelfer 2024 abgeschlossen und einen Führerschein Klasse B.
+    Meinen Lebenslauf und das Zeugnis habe ich anbei geschickt.
+
+    Ich kann ab sofort anfangen, gerne auch Wochenenddienste.
+
+    Gruß
+    Dennis Wolf
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal

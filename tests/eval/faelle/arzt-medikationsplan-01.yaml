@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: arzt-medikationsplan-01
+beschreibung: "Praxis ändert Medikation ab morgen früh und bittet um Bestätigung"
+tags: [arzt, medikation]
+mail:
+  von: "Hausarztpraxis Dr. Beispiel <praxis@praxis-beispiel.example>"
+  betreff: "Geänderter Medikationsplan Herr Hahn – gilt ab morgen"
+  datum: "2026-10-27T15:45:00+01:00"
+  anhaenge: [Medikationsplan_Hahn_2026-10-27.pdf]
+  text: |
+    Liebe Kolleginnen und Kollegen,
+
+    bei Herrn Werner Hahn haben wir heute nach Laborkontrolle die Medikation angepasst:
+    das Entwässerungsmittel wird morgens halbiert, das Blutdruckmittel abends entfällt.
+    Der neue Medikationsplan ist angehängt und gilt ab morgen früh.
+
+    Bitte bestätigen Sie uns kurz per Mail, dass die Änderung bei Ihnen angekommen ist und
+    die Tablettenbox entsprechend umgestellt wird.
+
+    Viele Grüße
+    Dr. med. Paul Beispiel
+soll:
+  kategorie: arzt_verordnung
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: pdl

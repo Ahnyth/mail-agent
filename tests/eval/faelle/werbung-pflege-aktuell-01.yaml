@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-pflege-aktuell-01
+beschreibung: "Fachnewsletter Pflege aktuell (bekannter Absender)"
+tags: [newsletter, bekannter-absender]
+mail:
+  von: "Pflege aktuell <newsletter@pflege-aktuell.example>"
+  betreff: "Pflege aktuell 43/2026: Neues zur Entbürokratisierung und Tarifsteigerung"
+  datum: "2026-10-22T06:00:00+02:00"
+  text: |
+    Pflege aktuell – Ihr wöchentlicher Fachnewsletter
+
+    Die Themen dieser Woche:
+    - Entbürokratisierung: Was die neuen Dokumentationsregeln für ambulante Dienste bedeuten
+    - Tarifrunde: Wie sich die Steigerungen auf die Vergütungsverhandlungen auswirken
+    - Praxis-Tipp: Wundversorgung im häuslichen Umfeld richtig dokumentieren
+
+    Alle Artikel lesen Sie online auf pflege-aktuell.example.
+
+    Sie erhalten diesen Newsletter, weil Sie ihn abonniert haben.
+    Abmelden: https://pflege-aktuell.example/abmelden
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung
+  frist: false

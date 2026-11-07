@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-angehoerige-01
+beschreibung: "Tochter fragt nach Grundpflege für ihren Vater ab Dezember"
+tags: [angehoerige, neukunde]
+mail:
+  von: "Petra Lange <petra.lange@mailbox.example>"
+  betreff: "Anfrage Pflege für meinen Vater"
+  datum: "2026-10-19T18:42:00+02:00"
+  text: |
+    Guten Abend,
+
+    mein Vater (79) lebt allein und kommt seit einigen Wochen morgens nicht mehr gut
+    alleine zurecht, vor allem beim Waschen und Anziehen. Er hat Pflegegrad 2.
+    Wir suchen ab Anfang Dezember einen Pflegedienst, der morgens kommt, gern 5x die Woche.
+
+    Haben Sie in Musterstadt-Nord noch Kapazitäten? Und wie läuft so ein Erstgespräch bei Ihnen ab?
+
+    Ich bin am besten abends unter 0151 0000000 erreichbar.
+
+    Viele Grüße
+    Petra Lange
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl
+  warnung: false
+  frist: false

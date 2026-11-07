@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Wiedervorlage{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Wiedervorlage</h1>
+    <p class="muted">Offene Nachrichten, die eine Antwort brauchen und noch nicht als „beantwortet“ markiert sind.</p>
+  </div>
+  <form method="get" action="/wiedervorlage" class="inline-form">
+    <label>Seit mindestens <input type="number" name="tage" min="0" max="365" value="{{ days }}"> Tagen</label>
+    <button class="btn" type="submit">Anzeigen</button>
+  </form>
+</section>
+{% if messages %}
+<ul class="inbox">
+  {% for m in messages %}
+  <li class="item"><a href="/nachrichten/{{ m.id }}">
+    <div class="item-head"><span class="badge cat">{{ m.analysis.category.label }}</span>
+      {% if m.analysis.responsible %}<span class="badge plain">{{ m.analysis.responsible.label }}</span>{% endif %}
+      <span class="date">{{ m.received_at | datum }}</span></div>
+    <div class="item-title"><strong>{{ m.sender_name or m.sender_address }}</strong> — {{ m.subject or "(ohne Betreff)" }}</div>
+    <div class="item-summary">{{ m.analysis.summary }}</div>
+  </a></li>
+  {% endfor %}
+</ul>
+{% else %}<div class="empty"><p>Nichts offen, das länger als {{ days }} Tage auf eine Antwort wartet.</p></div>{% endif %}
+{% endblock %}

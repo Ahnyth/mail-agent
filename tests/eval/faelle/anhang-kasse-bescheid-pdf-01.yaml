@@ -1,0 +1,31 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-kasse-bescheid-pdf-01
+beschreibung: Teilablehnung der AOK, Widerspruchsfrist steht nur im PDF
+tags: [anhang, kostentraeger, frist]
+mail:
+  von: "AOK Musterland <leistungen@aok-musterland.example>"
+  betreff: "Ihr Antrag auf häusliche Krankenpflege"
+  datum: "2026-10-27T11:20:00+01:00"
+  anhaenge:
+    - name: Bescheid_HKP.pdf
+      text: |
+        AOK Musterland – Bescheid
+        Antrag auf häusliche Krankenpflege vom 12.10.2026 für Versicherte E. Muster
+        Bewilligt: Medikamentengabe 2x täglich bis 31.12.2026
+        Abgelehnt: Kompressionsstrümpfe anziehen (keine ärztliche Verordnung)
+        Rechtsbehelfsbelehrung: Gegen diesen Bescheid kann innerhalb eines Monats nach
+        Bekanntgabe Widerspruch erhoben werden.
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    zu Ihrem Antrag erhalten Sie anbei unseren Bescheid.
+
+    Mit freundlichen Grüßen
+    AOK Musterland
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  frist: true
+  anhang_passt: true

@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: intern-dienstplan-01
+beschreibung: "Rundmail der PDL: Dienstplan November ist veröffentlicht"
+tags: [intern, rundmail]
+mail:
+  von: "Sandra Hoffmann (PDL) <pdl@musterpflege.example>"
+  betreff: "Dienstplan November ist online"
+  datum: "2026-10-23T15:05:00+02:00"
+  text: |
+    Liebe Kolleginnen und Kollegen,
+
+    der Dienstplan für November ist fertig und hängt ab sofort im Büro aus und in der Pflegesoftware.
+    Eure Wünsche konnte ich fast alle berücksichtigen.
+    Bei den Wochenenden 7./8. und 21./22.11. ist es etwas eng, da wäre ich für Flexibilität dankbar.
+
+    Danke euch und ein schönes Wochenende!
+    Sandra
+
+    Sandra Hoffmann
+    Pflegedienstleitung, Musterpflege GmbH
+soll:
+  kategorie: intern
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: pdl

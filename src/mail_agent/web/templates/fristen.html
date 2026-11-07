@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Fristen{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Fristen</h1>
+    <p class="muted">Aus offenen Nachrichten erkannt – bitte prüfen. Die Kalenderdatei ist nur ein Vorschlag zum Importieren.</p>
+  </div>
+  {% if items %}<a class="btn btn-primary" href="/fristen.ics">Kommende Fristen als .ics</a>{% endif %}
+</section>
+{% if items %}
+<table class="docs card">
+  <thead><tr><th>Datum</th><th>Frist</th><th>Nachricht</th><th></th></tr></thead>
+  <tbody>
+  {% for i in items %}
+    <tr class="{% if i.days_left < 0 %}overdue{% endif %}">
+      <td>{{ i.deadline.due.strftime("%d.%m.%Y") }}<div class="muted small">{% if i.days_left < 0 %}überfällig{% elif i.days_left == 0 %}heute{% else %}in {{ i.days_left }} Tagen{% endif %}</div></td>
+      <td>{{ i.deadline.description }}</td>
+      <td><a href="/nachrichten/{{ i.message.id }}">{{ i.message.subject or "(ohne Betreff)" }}</a><div class="muted small">{{ i.message.sender_name or i.message.sender_address }}</div></td>
+      <td><a class="small" href="/nachrichten/{{ i.message.id }}/fristen.ics">.ics</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}<div class="empty"><p>Keine Fristen in offenen Nachrichten.</p></div>{% endif %}
+{% endblock %}

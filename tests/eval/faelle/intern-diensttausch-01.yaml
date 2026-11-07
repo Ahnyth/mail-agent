@@ -1,0 +1,22 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: intern-diensttausch-01
+beschreibung: "Kollegin fragt nach Tausch eines Wochenenddienstes"
+tags: [intern, dienstplan]
+mail:
+  von: "Aylin Demir <aylin.demir@musterpflege.example>"
+  betreff: "Diensttausch 14.11.?"
+  datum: "2026-10-31T09:40:00+01:00"
+  text: |
+    Hallo Jana,
+
+    meine Schwester heiratet am Samstag, 14.11. – ich hätte da eigentlich Frühdienst Tour 1.
+    Könntest du den übernehmen? Ich würde dafür deinen Spätdienst am Sonntag, 22.11., machen.
+    Wenn das für dich passt, sag ich Sandra Bescheid, damit sie den Plan ändert.
+
+    Danke dir!!
+    Aylin
+soll:
+  kategorie: intern
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

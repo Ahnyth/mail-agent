@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Bewerbungen{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Bewerbungen</h1>
+    <p class="muted">Unterlagen anhand von Dateinamen und Anhangtext erkannt – bitte prüfen. Die Eingangsbestätigung ist eine feste Textvorlage.</p>
+  </div>
+</section>
+{% if rows %}
+<table class="docs card">
+  <thead><tr><th>Eingang</th><th>Bewerbung</th><th>Vorhanden</th><th>Fehlt</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for m, c in rows %}
+    <tr>
+      <td>{{ m.received_at | datum }}</td>
+      <td><a href="/nachrichten/{{ m.id }}">{{ m.sender_name or m.sender_address }}</a><div class="muted small">{{ m.subject }}</div></td>
+      <td>{% for item in c.present %}<span class="badge ok">✓ {{ item }}</span> {% endfor %}</td>
+      <td>{% for item in c.missing %}<span class="badge urgency-hoch">{{ item }}</span> {% else %}<span class="muted small">vollständig</span>{% endfor %}</td>
+      <td>{{ m.status.value }}{% if m.answered_at %}, beantwortet{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}<div class="empty"><p>Keine Bewerbungen.</p></div>{% endif %}
+{% endblock %}

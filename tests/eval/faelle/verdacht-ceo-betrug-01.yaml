@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: verdacht-ceo-betrug-01
+beschreibung: "CEO-Betrug: angebliche Geschäftsführerin verlangt vertrauliche Eilüberweisung von fremder Domain"
+tags: [ceo-betrug, iban, geldrisiko]
+mail:
+  von: "Monika Berger <monika.berger.gf@schnellpost-mail.example>"
+  betreff: "Dringend – vertraulich"
+  datum: "2026-10-29T11:52:00+01:00"
+  text: |
+    Hallo Lena,
+
+    ich bin gerade in einer Besprechung mit dem Notar und kann nicht telefonieren.
+    Wir müssen heute noch eine Anzahlung für die Übernahme eines Pflegedienstes leisten.
+    Bitte überweise sofort 24.850,00 Euro an:
+
+    Empfänger: Consulting Partners Holding
+    IBAN: DE75 5121 0800 1245 1261 99
+    Verwendungszweck: Projekt Nord 2026
+
+    Die Sache ist streng vertraulich, bitte mit niemandem darüber sprechen, auch nicht mit Sandra.
+    Gib mir kurz Bescheid, wenn es erledigt ist.
+
+    Monika Berger, Geschäftsführerin
+    Gesendet von meinem iPhone
+soll:
+  kategorie: verdacht
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  warnung: true

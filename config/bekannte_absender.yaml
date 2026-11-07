@@ -1,0 +1,37 @@
+# Bekannte Absender und Domains der Musterpflege GmbH
+#
+# Wirkung:
+#   - Bekannte Absender bekommen keine pauschale Betrugswarnung.
+#   - Bei Lieferanten mit hinterlegter IBAN warnt der Agent, wenn eine Mail eine ANDERE IBAN nennt.
+#   - Newsletter-Absender werden ohne KI als Werbung eingeordnet.
+#   - Mails von eigenen Domains gelten als intern (außer reine Weiterleitungen).
+# Streng bleibt es bei unbekannten Absendern mit Zahlungsaufforderung, geänderter Bankverbindung,
+# Druck („sofort zahlen“) oder Links zu Anmeldeseiten.
+#
+# typ: kostentraeger | abrechnungsdienst | lieferant | behoerde | arzt | anwalt | newsletter | sonstige
+#      (nur „anwalt“ schaltet die Kategorie „Recht / Anwalt“ frei)
+# Einfacher: in der Weboberfläche bei einer Mail „Absender als bekannt hinterlegen“ – das landet in
+# daten/postfach/bekannte_absender.yaml (nur auf diesem PC) und gilt zusätzlich zu dieser Datei.
+# Je Eintrag "domains" (inkl. Subdomains) und/oder "adressen" (genaue Adresse) angeben.
+# Ähnlich aussehende Domains (z. B. lieferant-rechnung.de) gelten NICHT als bekannt.
+#
+# Die Einträge unten sind Beispiele (.example). Echte Absender bitte hier ergänzen;
+# keine Passwörter oder Zugangsdaten in diese Datei.
+
+eigene_domains:
+  - musterpflege.example
+
+absender:
+  - name: Beispiel-Kasse (bitte ersetzen)
+    typ: kostentraeger
+    domains: [kasse.example]
+  - name: Beispiel-Abrechnungsdienst (bitte ersetzen)
+    typ: abrechnungsdienst
+    domains: [abrechnungsdienst.example]
+  - name: Beispiel-Lieferant (bitte ersetzen)
+    typ: lieferant
+    domains: [lieferant.example]
+    iban: [DE89 3704 0044 0532 0130 00]
+  - name: Beispiel-Newsletter (bitte ersetzen)
+    typ: newsletter
+    adressen: [newsletter@verlag.example]

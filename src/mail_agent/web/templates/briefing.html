@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Morgen-Briefing{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Morgen-Briefing</h1>
+    <p class="muted">Stand {{ b.today.strftime("%d.%m.%Y") }} · nur offene Nachrichten · ohne KI erstellt</p>
+  </div>
+  <div class="actions">
+    <button class="btn" type="button" data-speak="{{ speech }}">🔊 Vorlesen (Browser)</button>
+    {% if has_voice %}<button class="btn" type="button" data-audio="/briefing/audio">🔊 Vorlesen (Piper, offline)</button>{% endif %}
+  </div>
+</section>
+<audio id="briefing-audio" controls hidden></audio>
+
+<div class="grid">
+  <section class="card">
+    <h2>Dringend <span class="muted">({{ b.urgent | length }})</span></h2>
+    {% if b.urgent %}<ul class="linklist">{% for m in b.urgent %}
+      <li><a href="/nachrichten/{{ m.id }}">{{ m.subject or "(ohne Betreff)" }}</a> <span class="muted small">– {{ m.sender_name or m.sender_address }} · {{ m.analysis.category.label }}</span></li>
+    {% endfor %}</ul>{% else %}<p class="muted">Keine dringenden Nachrichten.</p>{% endif %}
+  </section>
+  <section class="card">
+    <h2>Fristen in den nächsten {{ b.horizon_days }} Tagen <span class="muted">({{ b.deadlines | length }})</span></h2>
+    {% if b.deadlines %}<ul class="linklist">{% for i in b.deadlines %}
+      <li class="{% if i.days_left < 0 %}overdue{% endif %}"><strong>{{ i.deadline.due.strftime("%d.%m.%Y") }}</strong>
+        {% if i.days_left < 0 %}(überfällig){% elif i.days_left == 0 %}(heute){% else %}(in {{ i.days_left }} Tagen){% endif %} –
+        <a href="/nachrichten/{{ i.message.id }}">{{ i.deadline.description }}</a></li>
+    {% endfor %}</ul>{% else %}<p class="muted">Keine Fristen in den nächsten Tagen.</p>{% endif %}
+  </section>
+  <section class="card">
+    <h2>Offene Rechnungen <span class="muted">({{ b.payments | length }})</span></h2>
+    {% if b.payments %}<ul class="linklist">{% for r in b.payments %}
+      <li><a href="/nachrichten/{{ r.message.id }}">{{ r.supplier or r.message.sender_name or r.message.sender_address }}</a>
+        <span class="muted small">{{ r.payment.amount or "Betrag ?" }}{% if r.payment.due %}, fällig {{ r.payment.due.strftime("%d.%m.%Y") }}{% endif %}</span>
+        {% if r.iban_check == "weicht ab" %}<span class="badge urgency-hoch">IBAN weicht ab</span>{% endif %}</li>
+    {% endfor %}</ul>{% else %}<p class="muted">Keine offenen Rechnungen.</p>{% endif %}
+  </section>
+  <section class="card">
+    <h2>Seit über {{ b.follow_up_days }} Tagen ohne Antwort <span class="muted">({{ b.unanswered | length }})</span></h2>
+    {% if b.unanswered %}<ul class="linklist">{% for m in b.unanswered %}
+      <li><a href="/nachrichten/{{ m.id }}">{{ m.subject or "(ohne Betreff)" }}</a> <span class="muted small">– seit {{ m.received_at | datum }}</span></li>
+    {% endfor %}</ul>{% else %}<p class="muted">Alles beantwortet.</p>{% endif %}
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-rechnung-schmitt-01
+beschreibung: "Mitarbeiterin leitet Rechnung von Bürobedarf Schmitt ohne Kommentar weiter"
+tags: [weiterleitung, lieferant, rechnung]
+mail:
+  von: "Aylin Demir <aylin.demir@musterpflege.example>"
+  betreff: "WG: Rechnung 2026-3391 Bürobedarf"
+  datum: "2026-10-28T12:44:00+01:00"
+  anhaenge: [Rechnung_2026-3391.pdf]
+  text: |
+    -----Ursprüngliche Nachricht-----
+    Von: Bürobedarf Schmitt <rechnung@buero-schmitt.example>
+    Gesendet: Mittwoch, 28. Oktober 2026 10:17
+    An: Aylin Demir <aylin.demir@musterpflege.example>
+    Betreff: Rechnung 2026-3391 Bürobedarf
+
+    Sehr geehrte Frau Demir,
+
+    zu Ihrer Bestellung vom 22.10. (Druckerpapier, Toner, Ordner) erhalten Sie anbei
+    die Rechnung 2026-3391 über 127,49 Euro. Zahlungsziel 30 Tage netto.
+
+    Freundliche Grüße
+    Bürobedarf Schmitt
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false

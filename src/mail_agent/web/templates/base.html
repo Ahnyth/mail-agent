@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Posteingang{% endblock %} · MailAgent</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+  <script src="{{ url_for('static', path='app.js') }}" defer></script>
+</head>
+<body data-message-id="{% block message_id %}{% endblock %}">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true">M</span> MailAgent</a>
+    <nav class="mainnav" aria-label="Bereiche">
+      {% for href, label in [("/", "Posteingang"), ("/briefing", "Briefing"), ("/fristen", "Fristen"), ("/rechnungen", "Rechnungen"), ("/bewerbungen", "Bewerbungen"), ("/wiedervorlage", "Wiedervorlage"), ("/uebergabe", "Übergabe")] %}
+        <a href="{{ href }}" {% if request.url.path == href %}aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
+    </nav>
+    {% if speech_enabled %}
+    <div class="ptt-wrap">
+      <button id="ptt" class="btn btn-small" type="button" title="Gedrückt halten und sprechen, z. B. „Was steht heute an?“">🎤 Halten zum Sprechen</button>
+      <span id="ptt-status" class="muted small" role="status" aria-live="polite"></span>
+    </div>
+    {% endif %}
+    <span class="topbar-note">Prototyp {{ version }} · nur Entwürfe, kein Versand</span>
+    {% if quit_enabled %}
+    <form method="post" action="/beenden" class="inline-action"
+          data-confirm="MailAgent beenden? Solange er aus ist, holt er keine Mails ab. Wieder starten: Doppelklick auf „MailAgent“ auf dem Desktop.">
+      <button class="btn btn-small" type="submit" title="Den Agent im Hintergrund beenden (wie Rechtsklick auf das Symbol neben der Uhr → Beenden)">⏻ Beenden</button>
+    </form>
+    {% endif %}
+  </header>
+  <main class="container">
+    {% if notice %}<p class="flash flash-ok" role="status">{{ notice }}</p>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <div id="speech-bar" class="speech-bar" role="region" aria-label="Vorlesen" hidden>
+    <span class="speech-state" id="speech-state" aria-live="polite">🔊 Liest vor …</span>
+    <button id="speech-pause" class="btn btn-small" type="button">⏸ Pause</button>
+    <button id="speech-stop" class="btn btn-small" type="button" title="Vorlesen beenden (Esc)">⏹ Stopp</button>
+    <label class="speech-rate" for="speech-rate">Tempo
+      <input id="speech-rate" type="range" min="0.6" max="2" step="0.1" value="1">
+      <output id="speech-rate-value" for="speech-rate">1,0×</output>
+    </label>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-letzte-mahnung-01
+beschreibung: "Letzte Mahnung vom Sanitätshaus Lindner mit Inkasso-Androhung"
+tags: [lieferant, mahnung, inkasso, bekannter-absender]
+mail:
+  von: "Sanitätshaus Lindner <rechnung@sanitaetshaus-lindner.example>"
+  betreff: "Letzte Mahnung vor Übergabe an Inkasso – RE-2026-08-0533"
+  datum: "2026-11-02T09:05:00+01:00"
+  anhaenge: [Mahnung_3_RE-2026-08-0533.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    trotz zweier Zahlungserinnerungen ist unsere Rechnung RE-2026-08-0533 vom 14.08.2026
+    über 1.126,40 Euro weiterhin offen. Wir fordern Sie hiermit letztmalig auf, den Betrag
+    zzgl. 5,00 Euro Mahngebühr bis zum 09.11.2026 auf unser Konto
+    IBAN DE89 3704 0044 0532 0130 00 zu überweisen.
+
+    Nach Ablauf dieser Frist übergeben wir die Forderung ohne weitere Ankündigung an ein
+    Inkassounternehmen.
+
+    Mit freundlichen Grüßen
+    Sanitätshaus Lindner – Buchhaltung
+soll:
+  kategorie: abrechnung
+  prioritaet: hoch
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false

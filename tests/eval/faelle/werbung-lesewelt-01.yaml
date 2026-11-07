@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-lesewelt-01
+beschreibung: "Buch-Newsletter mit Reizwörtern wie Rechnung und Termin"
+tags: [newsletter, bekannter-absender, reizwoerter]
+mail:
+  von: "Lesewelt <news@lesewelt.example>"
+  betreff: "Herbstlese: Neuerscheinungen, Lesungstermine und ein Geschenk für Sie"
+  datum: "2026-10-24T08:30:00+02:00"
+  text: |
+    Liebe Leserinnen und Leser,
+
+    der Herbst ist da – Zeit für gute Bücher! Unsere Buchhändlerinnen haben die schönsten
+    Neuerscheinungen ausgesucht, die jedem Geschmack Rechnung tragen: vom Krimi bis zum Kochbuch.
+
+    Merken Sie sich schon jetzt den Termin für unseren Leseabend am 19. November vor.
+    Bei Bestellung auf Rechnung bis Monatsende schenken wir Ihnen ein Lesezeichen.
+
+    Viel Freude beim Stöbern
+    Ihr Lesewelt-Team
+
+    Newsletter abbestellen: https://lesewelt.example/newsletter/abmelden
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung
+  warnung: false
+  frist: false

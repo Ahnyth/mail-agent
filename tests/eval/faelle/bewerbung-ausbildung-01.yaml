@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: bewerbung-ausbildung-01
+beschreibung: "Schülerin bewirbt sich um einen Ausbildungsplatz zur Pflegefachfrau"
+tags: [bewerbung, ausbildung, anhang]
+mail:
+  von: "Lea Sommer <lea.sommer2009@mailbox.example>"
+  betreff: "Bewerbung um einen Ausbildungsplatz zur Pflegefachfrau ab 2027"
+  datum: "2026-10-27T16:48:00+01:00"
+  anhaenge: [Bewerbung_Lea_Sommer.pdf]
+  text: |
+    Sehr geehrte Frau Hoffmann,
+
+    ich besuche zurzeit die 10. Klasse der Realschule Musterstadt und mache im Sommer 2027
+    meinen Abschluss. In einem Schulpraktikum im Seniorenheim habe ich gemerkt, wie gern ich
+    mit älteren Menschen arbeite. Deshalb bewerbe ich mich bei Ihnen um einen Ausbildungsplatz
+    zur Pflegefachfrau ab September 2027.
+
+    Meine Bewerbungsunterlagen habe ich als PDF angehängt.
+
+    Mit freundlichen Grüßen
+    Lea Sommer
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal

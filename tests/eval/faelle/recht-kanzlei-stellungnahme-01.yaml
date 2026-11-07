@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: recht-kanzlei-stellungnahme-01
+beschreibung: "Eigene, als Anwalt hinterlegte Kanzlei schickt Schriftsatz der Gegenseite und bittet um Stellungnahme"
+tags: [recht, anwalt, frist, bekannter-absender]
+mail:
+  von: "RA Jonas Beispiel <j.beispiel@kanzlei-musterrecht.example>"
+  betreff: "123/26 – Musterpflege GmbH ./. Muster – Klageerweiterung"
+  datum: "2026-11-04T17:27:00+01:00"
+  anhaenge: [Klageerweiterung_Gegenseite.pdf, Anschreiben_Mandantin.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    anliegend übersende ich Ihnen die Klageerweiterung der Gegenseite im Verfahren vor dem
+    Arbeitsgericht mit der Bitte um Kenntnisnahme.
+
+    Bitte senden Sie mir bis zum 20.11.2026 Ihre Stellungnahme zu den neuen Forderungen sowie die
+    Arbeitszeitnachweise der letzten zwölf Monate.
+
+    Diese E-Mail enthält vertrauliche Informationen und ist nur für den Empfänger bestimmt.
+
+    Mit freundlichen Grüßen
+    Jonas Beispiel
+    Rechtsanwalt
+soll:
+  kategorie: recht
+  prioritaet: normal
+  entwurf: true
+  zustaendig: geschaeftsfuehrung
+  frist: true

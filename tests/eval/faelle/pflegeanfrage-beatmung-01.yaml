@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-beatmung-01
+beschreibung: "Weaning-Zentrum fragt 1:1-Intensivversorgung mit invasiver Beatmung an"
+tags: [intensivpflege, beatmung, klinik]
+mail:
+  von: "Dr. Jonas Albrecht <j.albrecht@weaning-zentrum-sued.example>"
+  betreff: "Überleitung außerklinische Intensivpflege – Patient mit Trachealkanüle"
+  datum: "2026-10-22T14:30:00+02:00"
+  anhaenge: [Arztbrief_vorab_Brandt.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    für unseren Patienten Herrn Otto Brandt (58 J.) suchen wir eine außerklinische
+    Intensivversorgung im häuslichen Umfeld (24 h, 1:1). Der Patient ist tracheotomiert und
+    nachts invasiv beatmet, tagsüber stundenweise spontanatmend. Die Entlassung ist für
+    Ende November geplant, die Ehefrau ist sehr engagiert, die Wohnung barrierearm.
+
+    Könnten Sie uns bis zum 06.11.2026 mitteilen, ob Sie grundsätzlich Kapazitäten haben?
+    Gern stimmen wir dann einen Termin zur Überleitung auf unserer Station ab.
+
+    Mit freundlichen Grüßen
+    Dr. med. Jonas Albrecht
+    Oberarzt Weaning-Station
+    Weaning-Zentrum Süd
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl
+  frist: true

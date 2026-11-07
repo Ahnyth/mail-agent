@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Beenden{% endblock %}
+{% block content %}
+<section class="card quit-card">
+  <h1>Gerade läuft: {{ running }}</h1>
+  <p>Wenn der Agent jetzt beendet wird, hört er nach dem aktuellen Schritt auf. Bereits Erledigtes bleibt gespeichert,
+    der Rest wird beim nächsten Abruf nachgeholt.</p>
+  <div class="quit-actions">
+    <a class="btn btn-primary" href="/">Weiterlaufen lassen</a>
+    <form method="post" action="/beenden" class="inline-action">
+      <input type="hidden" name="trotzdem" value="1">
+      <button class="btn" type="submit">Trotzdem beenden</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

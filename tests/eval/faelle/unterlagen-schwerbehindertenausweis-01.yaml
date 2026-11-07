@@ -1,0 +1,20 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: unterlagen-schwerbehindertenausweis-01
+beschreibung: "Angehörige schickt kommentarlos die angeforderte Ausweiskopie"
+tags: [unterlagen, angehoerige, anhang, kurz]
+mail:
+  von: "Sabine Fischer <sabine.fischer@post-beispiel.example>"
+  betreff: "Ausweis Papa"
+  datum: "2026-10-31T10:16:00+01:00"
+  anhaenge: [SB-Ausweis_Fischer_Vorderseite.jpg, SB-Ausweis_Fischer_Rueckseite.jpg]
+  text: |
+    Hallo,
+    anbei wie gewünscht die Kopie vom Schwerbehindertenausweis meines Vaters Werner Fischer (Vorder- und Rückseite).
+    Gruß
+    Sabine Fischer
+soll:
+  kategorie: unterlagen
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  frist: false

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Rechnungen{% endblock %}
+{% block content %}
+<section class="toolbar">
+  <div>
+    <h1>Rechnungen und Zahlungen</h1>
+    <p class="muted">Ausgelesene Zahlungsdaten – vor jeder Zahlung mit dem Original vergleichen. „Erledigt“ gilt als bezahlt.</p>
+  </div>
+  {% if rows %}<a class="btn btn-primary" href="/rechnungen.csv">CSV für die Buchhaltung</a>{% endif %}
+</section>
+{% if rows %}
+<table class="docs card">
+  <thead><tr><th>Fällig</th><th>Absender</th><th>Rechnungsnr.</th><th>Betrag</th><th>IBAN</th><th>Prüfung</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td>{{ r.payment.due.strftime("%d.%m.%Y") if r.payment.due else "–" }}</td>
+      <td><a href="/nachrichten/{{ r.message.id }}">{{ r.supplier or r.message.sender_name or r.message.sender_address }}</a></td>
+      <td>{{ r.payment.invoice_number or "–" }}</td>
+      <td>{{ r.payment.amount or "–" }}</td>
+      <td class="path">{{ r.payment.iban or "–" }}</td>
+      <td><span class="badge {% if r.iban_check in ('weicht ab', 'Verdacht') %}urgency-hoch{% elif r.iban_check == 'passt' %}ok{% else %}plain{% endif %}">{{ r.iban_check }}</span></td>
+      <td>{{ r.message.status.value }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}<div class="empty"><p>Keine Rechnungen mit Zahlungsdaten.</p></div>{% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-rueckfrage-01
+beschreibung: "Abrechnungszentrum fragt fehlende Unterschrift auf Leistungsnachweis bis 30.10. nach"
+tags: [abrechnungsdienst, frist-kurz]
+mail:
+  von: "Nadine Brandl <n.brandl@abrechnung-nord.example>"
+  betreff: "Rückfrage Leistungsnachweis Oktober – Frau Vogel"
+  datum: "2026-10-27T13:55:00+01:00"
+  text: |
+    Hallo Frau Wagner,
+
+    beim Leistungsnachweis von Frau Hildegard Vogel (BKK Beispiel) für die zweite Oktoberhälfte
+    fehlt die Unterschrift der Versicherten bzw. ihrer Betreuerin. Außerdem ist am 24.10.
+    kein Handzeichen eingetragen.
+
+    Können Sie mir den korrigierten Nachweis bis Freitag, 30.10., zukommen lassen?
+    Sonst müssen wir die Position aus dem Abrechnungslauf herausnehmen.
+
+    Viele Grüße
+    Nadine Brandl
+    Abrechnungszentrum Nord
+soll:
+  kategorie: abrechnung
+  prioritaet: hoch
+  entwurf: true
+  zustaendig: abrechnung
+  warnung: false
+  frist: true

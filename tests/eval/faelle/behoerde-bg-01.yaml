@@ -1,0 +1,30 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: behoerde-bg-01
+beschreibung: "Büro leitet Beitragsbescheid der Berufsgenossenschaft kommentarlos weiter"
+tags: [weiterleitung, behoerde, bescheid]
+mail:
+  von: "Lena Wagner <lena.wagner@musterpflege.example>"
+  betreff: "WG: Beitragsbescheid 2025 – Mitgliedsnummer 000 0000 0"
+  datum: "2026-10-30T14:22:00+01:00"
+  anhaenge: [Beitragsbescheid_2025.pdf]
+  text: |
+    -----Ursprüngliche Nachricht-----
+    Von: Berufsgenossenschaft Gesundheitsdienst Beispiel <beitrag@bg-gesundheit.example>
+    Gesendet: Freitag, 30. Oktober 2026 11:05
+    An: buero@musterpflege.example
+    Betreff: Beitragsbescheid 2025 – Mitgliedsnummer 000 0000 0
+
+    Sehr geehrte Damen und Herren,
+
+    anbei erhalten Sie den Beitragsbescheid für das Umlagejahr 2025 auf Grundlage Ihres
+    Lohnnachweises. Der Beitrag beträgt 14.382,00 Euro und ist am 15.11.2026 fällig.
+    Gegen diesen Bescheid kann innerhalb eines Monats nach Bekanntgabe Widerspruch erhoben werden.
+
+    Mit freundlichen Grüßen
+    Ihre Berufsgenossenschaft – Abteilung Beiträge
+soll:
+  kategorie: behoerde
+  prioritaet: normal
+  entwurf: false
+  zustaendig: geschaeftsfuehrung
+  frist: true

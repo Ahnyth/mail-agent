@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-leistungsnachweise-01
+beschreibung: "BKK fordert unterschriebene Leistungsnachweise per Mail bis 20.11. an"
+tags: [kostentraeger, leistungsnachweise]
+mail:
+  von: "BKK Beispiel Pflegekasse <abrechnungspruefung@bkk-beispiel.example>"
+  betreff: "Anforderung Leistungsnachweise Juli bis September 2026"
+  datum: "2026-10-28T11:05:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    im Rahmen einer stichprobenartigen Abrechnungsprüfung bitten wir um Übersendung der
+    unterschriebenen Leistungsnachweise für folgende Versicherte:
+
+    - Frau Edith Kraus, Juli bis September 2026
+    - Herr Werner Hahn, September 2026
+
+    Bitte senden Sie uns die Nachweise bis zum 20.11.2026 als PDF per E-Mail an diese Adresse.
+
+    Mit freundlichen Grüßen
+    Sabine Ott
+    BKK Beispiel – Abrechnungsprüfung
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: true
+  zustaendig: abrechnung
+  frist: true

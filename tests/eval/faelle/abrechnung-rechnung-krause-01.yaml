@@ -1,0 +1,27 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-rechnung-krause-01
+beschreibung: "Rechnung Medizinbedarf Krause mit hinterlegter IBAN"
+tags: [lieferant, rechnung, iban, bekannter-absender]
+mail:
+  von: "Medizinbedarf Krause GmbH <buchhaltung@medbedarf-krause.example>"
+  betreff: "Ihre Rechnung Nr. 47112 vom 26.10.2026"
+  datum: "2026-10-26T09:12:00+01:00"
+  anhaenge: [Rechnung_47112.pdf]
+  text: |
+    Guten Tag,
+
+    vielen Dank für Ihre Bestellung. Im Anhang finden Sie die Rechnung Nr. 47112
+    (Verbandmaterial, Wundauflagen, Desinfektionsmittel) über 518,35 Euro.
+
+    Zahlbar bis 09.11.2026 ohne Abzug an:
+    Medizinbedarf Krause GmbH, IBAN DE12 5001 0517 0648 4898 90
+
+    Mit freundlichen Grüßen
+    Medizinbedarf Krause GmbH
+    Buchhaltung
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false

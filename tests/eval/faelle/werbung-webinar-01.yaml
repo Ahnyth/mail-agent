@@ -1,0 +1,29 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-webinar-01
+beschreibung: "Unbekannter Fortbildungsanbieter wirbt für ein Webinar"
+tags: [werbung, fortbildung, unbekannter-absender]
+mail:
+  von: "Pflegeakademie Plus <seminare@pflegeakademie-plus.example>"
+  betreff: "Webinar: Expertenstandard Sturzprophylaxe kompakt – jetzt Platz sichern"
+  datum: "2026-10-27T10:00:00+01:00"
+  text: |
+    Sehr geehrte Pflegedienstleitung,
+
+    in unserem 90-minütigen Live-Webinar bringen wir Ihr Team auf den aktuellen Stand zum
+    Expertenstandard Sturzprophylaxe – praxisnah und mit Teilnahmebescheinigung
+    (2 Fortbildungspunkte).
+
+    Termine: 24.11.2026 und 08.12.2026, jeweils 14:00 Uhr
+    Preis: 59 Euro pro Person, ab drei Personen 49 Euro
+
+    Infos und Anmeldung: https://pflegeakademie-plus.example/webinare
+
+    Herzliche Grüße
+    Ihr Team der Pflegeakademie Plus
+    Abmeldung vom Newsletter: https://pflegeakademie-plus.example/abmelden
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung
+  warnung: false

@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: abrechnung-monatsabrechnung-01
+beschreibung: "Abrechnungszentrum meldet erstellte Monatsabrechnung September"
+tags: [abrechnungsdienst, bekannter-absender]
+mail:
+  von: "Abrechnungszentrum Nord <service@abrechnung-nord.example>"
+  betreff: "Ihre Monatsabrechnung September 2026"
+  datum: "2026-10-19T08:30:00+02:00"
+  anhaenge: [Abrechnungsuebersicht_2026-09.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    die Abrechnung Ihrer Leistungen für September 2026 wurde erstellt und an die Kostenträger
+    übermittelt. Abgerechnet wurden 38 Versicherte mit einem Gesamtbetrag von 61.284,17 Euro.
+    Die Übersicht je Kostenträger finden Sie im Anhang. Die Auszahlung erfolgt wie vereinbart
+    nach Zahlungseingang der Kassen.
+
+    Mit freundlichen Grüßen
+    Ihr Team vom Abrechnungszentrum Nord
+soll:
+  kategorie: abrechnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: abrechnung
+  warnung: false

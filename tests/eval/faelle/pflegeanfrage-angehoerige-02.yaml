@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: pflegeanfrage-angehoerige-02
+beschreibung: "Sohn fragt Verhinderungspflege während seines Urlaubs an"
+tags: [angehoerige, verhinderungspflege]
+mail:
+  von: "Stefan Koch <stefan.koch@post-beispiel.example>"
+  betreff: "Verhinderungspflege im Januar möglich?"
+  datum: "2026-10-28T08:20:00+01:00"
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    ich pflege meine Mutter (Pflegegrad 3) zu Hause selbst. Vom 11. bis 24. Januar 2027
+    bin ich beruflich verreist und suche für diese Zeit eine Vertretung über die
+    Verhinderungspflege – morgens Grundpflege und abends Hilfe beim Zubettgehen.
+
+    Ist das bei Ihnen grundsätzlich machbar, und welche Unterlagen brauchen Sie von uns?
+    Die Pflegekasse ist die BKK Beispiel.
+
+    Mit freundlichen Grüßen
+    Stefan Koch
+soll:
+  kategorie: pflegeanfrage
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

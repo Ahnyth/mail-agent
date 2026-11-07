@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% block title %}{{ m.subject or "Nachricht" }}{% endblock %}
+{% block message_id %}{{ m.id }}{% endblock %}
+{% block content %}
+<p><a class="back" href="/?{{ list_query }}">← Zurück zur Liste</a></p>
+
+<section class="message-head">
+  <div>
+    <div class="badges">
+      <span class="badge urgency-{{ a.urgency.value }}">Dringlichkeit: {{ a.urgency.value }}</span>
+      <span class="badge cat cat-{{ a.category.value }}">{{ a.category.label }}</span>
+      {% if a.responsible %}<span class="badge plain">Zuständig: {{ a.responsible.label }}</span>{% endif %}
+      <span class="badge plain">{{ m.status.value }}</span>
+      {% if m.correction %}<span class="badge plain">korrigiert</span>{% endif %}
+    </div>
+    <h1>{{ m.subject or "(ohne Betreff)" }}</h1>
+    <p class="muted">Von <strong>{{ m.sender_name or m.sender_address }}</strong> &lt;{{ m.sender_address }}&gt;
+      · {{ m.received_at | datum }}</p>
+    <div class="sender-known">
+    {% if m.contact_form %}
+      <span class="badge plain" title="Name und Adresse hat der Besucher selbst eingetragen. Solche Absender lassen sich nicht als bekannt hinterlegen, weil jeder jede Adresse eintragen kann.">✉ Über das Kontaktformular der Website · Angaben vom Besucher, ungeprüft</span>
+    {% elif known %}
+      <span class="badge ok" title="Steht in der Liste der bekannten Absender">✓ Bekannter Absender: {{ known.name }} · {{ known_type }}</span>
+      {% if local_known %}
+      <form method="post" action="/nachrichten/{{ m.id }}/absender-entfernen" class="inline-action"
+            data-confirm="„{{ local_known.name }}“ wieder aus den bekannten Absendern entfernen?">
+        <input type="hidden" name="kennung" value="{{ local_key }}">
+        <input type="hidden" name="von" value="{{ list_query }}">
+        <button class="linkbutton small" type="submit">entfernen</button>
+      </form>
+      {% endif %}
+    {% elif can_save_senders %}
+      <details class="sender-save">
+        <summary>☆ Absender als bekannt hinterlegen</summary>
+        <form method="post" action="/nachrichten/{{ m.id }}/absender" class="sender-form">
+          <label>Name <input name="name" value="{{ sender_form.name }}" maxlength="80" required></label>
+          <label>Art
+            <select name="typ">{% for value, label in sender_types %}<option value="{{ value }}" {% if value == sender_form.type %}selected{% endif %}>{{ label }}</option>{% endfor %}</select>
+          </label>
+          {% if sender_form.via_service %}
+          <p class="small muted wide">Diese Mail kommt über einen Rechnungs- oder Versanddienst ({{ m.sender_address }}), den viele Firmen nutzen. Erkannt wird der Absender deshalb an seiner Antwortadresse <strong>{{ sender_form.identity }}</strong>.</p>
+          <input type="hidden" name="umfang" value="adresse">
+          {% elif sender_form.domain_allowed %}
+          <fieldset class="wide">
+            <legend>Gilt für</legend>
+            <label class="radio"><input type="radio" name="umfang" value="domain" checked> alle Adressen von <strong>@{{ sender_form.domain }}</strong></label>
+            <label class="radio"><input type="radio" name="umfang" value="adresse"> nur {{ sender_form.identity }}</label>
+          </fieldset>
+          {% else %}
+          <p class="small muted wide">Allgemeiner Mail-Anbieter – gilt nur für die Adresse <strong>{{ sender_form.identity }}</strong>.</p>
+          <input type="hidden" name="umfang" value="adresse">
+          {% endif %}
+          <label class="wide">IBAN (optional – nur eintragen, wenn telefonisch bestätigt; dann warnt der Agent bei einer abweichenden Bankverbindung)
+            <input name="iban" maxlength="40" autocomplete="off" placeholder="DE…">
+          </label>
+          <input type="hidden" name="von" value="{{ list_query }}">
+          <div class="wide buttons">
+            <button class="btn btn-primary btn-small" type="submit">Als bekannt speichern</button>
+            <span class="small muted">Bekannte Absender bekommen keine pauschale Betrugswarnung. „Anwalt / Kanzlei“ schaltet „Recht / Anwalt“ frei. Die offenen Mails dieses Absenders werden danach neu ausgewertet.</span>
+          </div>
+        </form>
+      </details>
+    {% endif %}
+    </div>
+  </div>
+  <div class="actions">
+    <form method="post" action="/nachrichten/{{ m.id }}/status">
+      <input type="hidden" name="von" value="{{ list_query }}">
+      {% if m.status.value == 'offen' %}
+        <input type="hidden" name="status" value="erledigt">
+        <button class="btn btn-primary" type="submit" title="Danach öffnet sich die nächste offene Mail der Liste">✓ Erledigt – nächste Mail</button>
+      {% else %}
+        <input type="hidden" name="status" value="offen">
+        <button class="btn" type="submit">Wieder öffnen</button>
+      {% endif %}
+    </form>
+    <form method="post" action="/nachrichten/{{ m.id }}/beantwortet">
+      {% if m.answered_at %}
+        <input type="hidden" name="beantwortet" value="nein">
+        <button class="btn" type="submit">Beantwortet ✓ (zurücknehmen)</button>
+      {% else %}
+        <input type="hidden" name="beantwortet" value="ja">
+        <button class="btn" type="submit">Beantwortet</button>
+      {% endif %}
+    </form>
+    <button class="btn" type="button" data-speak="{{ a.read_aloud or (a.category.label ~ ': ' ~ m.subject) }}">🔊 Vorlesen</button>
+    <form method="post" action="/nachrichten/{{ m.id }}/neu-analysieren"
+          data-confirm="{% if m.draft_edited %}Ihre Änderungen am Entwurf gehen dabei verloren. Fortfahren?{% endif %}">
+      <button class="btn" type="submit">Neu analysieren</button>
+    </form>
+  </div>
+</section>
+
+{% if a.warnings %}
+<div class="warnings" role="alert">
+  {% for w in a.warnings %}<p>⚠ {{ w }}</p>{% endfor %}
+</div>
+{% endif %}
+{% if a.attachments_match == false %}
+<div class="findings" role="status"><strong>Anhang passt möglicherweise nicht zur Mail</strong> – bitte prüfen.</div>
+{% endif %}
+{% if a.findings %}
+<div class="findings" role="status">
+  <strong>Bitte prüfen</strong>
+  <ul>{% for f in a.findings %}<li>{{ f }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+<div class="grid">
+  <div class="col">
+    <section class="card">
+      <h2>Kurzfassung</h2>
+      <p class="summary">{{ a.summary }}</p>
+      {% if a.deadlines %}
+      <h3>Fristen <a class="small" href="/nachrichten/{{ m.id }}/fristen.ics">als Kalenderdatei (.ics)</a></h3>
+      <ul class="facts">{% for d in a.deadlines %}<li><strong>{{ d.due.strftime("%d.%m.%Y") }}</strong> – {{ d.description }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if a.payment %}
+      <h3>Zahlungsdaten</h3>
+      <dl class="facts">
+        {% if a.payment.amount %}<dt>Betrag</dt><dd>{{ a.payment.amount }}</dd>{% endif %}
+        {% if a.payment.iban %}<dt>IBAN</dt><dd>{{ a.payment.iban }}</dd>{% endif %}
+        {% if a.payment.due %}<dt>Fällig</dt><dd>{{ a.payment.due.strftime("%d.%m.%Y") }}</dd>{% endif %}
+        {% if a.payment.invoice_number %}<dt>Rechnungsnr.</dt><dd>{{ a.payment.invoice_number }}</dd>{% endif %}
+      </dl>
+      {% endif %}
+      {% if a.tasks %}
+      <h3>Nächste Schritte</h3>
+      <ul class="checklist">{% for t in a.tasks %}<li>{{ t }}</li>{% endfor %}</ul>
+      {% endif %}
+      <details>
+        <summary>Warum diese Einordnung?</summary>
+        <ul>{% for r in a.reasons %}<li>{{ r }}</li>{% endfor %}</ul>
+        <p class="muted small">Analyse: {{ a.engine }}
+          {% if a.confidence is not none %} · Sicherheit {{ (a.confidence * 100) | round | int }} %{% endif %}
+          {% if a.duration_ms is not none %} · {{ "%.1f" | format(a.duration_ms / 1000) }} s{% endif %}</p>
+      </details>
+    </section>
+
+    <section class="card">
+      <details class="correction" {% if m.correction %}open{% endif %}>
+        <summary>Falsch eingeordnet?</summary>
+        <form method="post" action="/nachrichten/{{ m.id }}/korrektur" class="correction-form">
+          <label>Kategorie
+            <select name="kategorie">{% for c in categories %}<option value="{{ c.value }}" {% if c == a.category %}selected{% endif %}>{{ c.label }}</option>{% endfor %}</select>
+          </label>
+          <label>Priorität
+            <select name="prioritaet">{% for u in urgencies %}<option value="{{ u.value }}" {% if u == a.urgency %}selected{% endif %}>{{ u.value }}</option>{% endfor %}</select>
+          </label>
+          <label>Antwortentwurf nötig
+            <select name="entwurf"><option value="ja" {% if a.reply_needed %}selected{% endif %}>ja</option><option value="nein" {% if not a.reply_needed %}selected{% endif %}>nein</option></select>
+          </label>
+          <label>Zuständig
+            <select name="zustaendig"><option value="">–</option>{% for r in responsibles %}<option value="{{ r.value }}" {% if r == a.responsible %}selected{% endif %}>{{ r.label }}</option>{% endfor %}</select>
+          </label>
+          <label class="wide">Notiz (optional, ohne Namen)
+            <input name="notiz" maxlength="500">
+          </label>
+          {% if same_sender_count %}
+          <label class="wide radio"><input type="checkbox" name="alle_absender" value="ja">
+            auch für die {{ same_sender_count }} weitere(n) offene(n) Mail(s) dieses Absenders übernehmen (einheitliche Einordnung)</label>
+          {% endif %}
+          <input type="hidden" name="von" value="{{ list_query }}">
+          <button class="btn" type="submit">Korrektur speichern</button>
+        </form>
+        {% if m.correction %}
+        <p class="muted small">Korrigiert am {{ m.correction.created_at | datum }}: vorher {{ m.correction.original_category.label }}, {{ m.correction.original_urgency.value }}.
+          {% if m.correction.exported_to %}Als Testfall gespeichert: {{ m.correction.exported_to }}{% endif %}</p>
+        <form method="post" action="/nachrichten/{{ m.id }}/testfall">
+          <button class="btn" type="submit">Als Testfall übernehmen (anonymisiert)</button>
+        </form>
+        {% endif %}
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Dokumente</h2>
+      {% if m.documents %}
+      <table class="docs">
+        <thead><tr><th>Datei</th><th>Typ</th><th>Größe</th><th>Ablage</th></tr></thead>
+        <tbody>
+        {% for d in m.documents %}
+          <tr>
+            <td>{{ d.filename }}</td>
+            <td>{{ d.document_type or "–" }}
+              {% if d.extracted_text %}<details class="small"><summary>Text gelesen</summary><pre class="original">{{ d.extracted_text[:3000] }}</pre></details>
+              {% elif d.text_note %}<div class="muted small">{{ d.text_note }}</div>{% endif %}</td>
+            <td>{{ d.size | groesse }}</td>
+            <td>
+              {% if d.stored_path %}
+                <a href="/dokumente/{{ d.id }}" target="_blank" rel="noopener">öffnen</a>
+                <div class="muted small path">{{ d.stored_path }}</div>
+              {% else %}
+                <span class="rejected">{{ d.rejected_reason }}</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="muted">Keine Anhänge.</p>
+      {% endif %}
+    </section>
+
+    <section class="card">
+      <h2>Originalnachricht</h2>
+      <pre class="original">{{ m.body }}</pre>
+      <p class="muted small">Quelle: {{ m.origin }}</p>
+    </section>
+  </div>
+
+  <div class="col">
+    {% macro draft_fields() %}
+      <div class="field">
+        <label for="to">An</label>
+        <div class="copyrow"><input readonly value="{{ m.reply_to }}" id="to"><button class="btn btn-small" type="button" data-copy="#to">Kopieren</button></div>
+        {% if m.reply_to and m.reply_to | lower != m.sender_address | lower %}
+        <p class="small reply-elsewhere">Achtung: Antworten gehen an diese Adresse, nicht an den Absender {{ m.sender_address }}. Bei Kontaktformularen normal – bei Zahlungs- oder Kontoanfragen vorher telefonisch prüfen.</p>
+        {% endif %}
+      </div>
+      <div class="field">
+        <label for="subject">Betreff</label>
+        <div class="copyrow"><input readonly value="{{ a.reply_subject }}" id="subject"><button class="btn btn-small" type="button" data-copy="#subject">Kopieren</button></div>
+      </div>
+      <form method="post" action="/nachrichten/{{ m.id }}/entwurf">
+        <div class="field">
+          <label for="entwurf">Text{% if m.draft_edited %} <span class="muted">(bearbeitet)</span>{% endif %}</label>
+          <textarea id="entwurf" name="entwurf" rows="18">{{ a.reply_body }}</textarea>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-primary" type="button" data-mail-open
+                  title="Öffnet eine neue Mail im Mailprogramm (z. B. Outlook) mit Empfänger, Betreff und Text. Gesendet wird erst, wenn Sie dort auf „Senden“ klicken.">✉ In Outlook öffnen</button>
+          <button class="btn" type="button" data-copy="#entwurf">Text kopieren</button>
+          <button class="btn" type="submit">Änderungen speichern</button>
+          {% if drafter_enabled %}<button class="btn" type="submit" formaction="/nachrichten/{{ m.id }}/entwurf-formulieren" title="Der Text im Feld (z. B. ein Diktat) wird von der KI zu einem höflichen Entwurf ausformuliert. Nichts wird gesendet.">Von KI formulieren lassen</button>{% endif %}
+        </div>
+        <p class="small muted mail-open-note" id="mail-open-note" hidden></p>
+      </form>
+    {% endmacro %}
+
+    <section class="card draft">
+      <h2>Antwortentwurf</h2>
+      {% if a.reply_needed or a.reply_body %}
+      <p class="muted small">Bitte prüfen, Platzhalter in [eckigen Klammern] ersetzen und im Mailprogramm selbst versenden.</p>
+      {{ draft_fields() }}
+      {% else %}
+      <p class="muted">Keine Antwort erforderlich (z. B. Werbung oder Verdacht auf Betrug).</p>
+      <details class="draft-anyway">
+        <summary>Trotzdem antworten</summary>
+        <p class="muted small">Stichworte ins Textfeld schreiben und „Von KI formulieren lassen“ – oder selbst schreiben und in Outlook öffnen.</p>
+        {{ draft_fields() }}
+      </details>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}

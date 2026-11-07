@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: werbung-software-01
+beschreibung: "Software-Anbieter wirbt für Tourenplanung und bietet Demo an"
+tags: [werbung, software]
+mail:
+  von: "Jan Krüger | CareRoute Software <jan.krueger@careroute-software.example>"
+  betreff: "30 % weniger Fahrzeit – auch für die Musterpflege GmbH?"
+  datum: "2026-10-28T09:17:00+01:00"
+  text: |
+    Hallo Frau Hoffmann,
+
+    viele ambulante Pflegedienste verlieren täglich Stunden durch ungünstige Touren.
+    Mit CareRoute planen Sie Touren automatisch, inklusive Qualifikationen und Zeitfenstern,
+    und die Leistungsnachweise landen direkt in der Abrechnung.
+
+    Hätten Sie nächste Woche 20 Minuten für eine unverbindliche Online-Demo?
+    Hier können Sie sich direkt einen Termin aussuchen: https://careroute-software.example/demo
+
+    Beste Grüße
+    Jan Krüger
+    Vertrieb, CareRoute Software GmbH
+soll:
+  kategorie: werbung
+  prioritaet: niedrig
+  entwurf: false
+  zustaendig: verwaltung

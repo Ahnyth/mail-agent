@@ -1,0 +1,115 @@
+# MailAgent – Beispielkonfiguration
+#
+# Auf jedem PC nach mail_agent.toml kopieren (wird nicht eingecheckt) und an die eigene Firma
+# anpassen: Firmenname, Signatur und [imap]. Die Vorlage schickt keine Mail an eine KI
+# (engine = "rules"), bis der Inhaber den Datenschutz geklärt hat (docs/SICHERHEIT_UND_DATENSCHUTZ.md).
+# In diese Datei gehören KEINE Passwörter oder API-Schlüssel:
+#   - Postfach-Passwort: Windows-Anmeldeinformationsspeicher (siehe README, "cmdkey")
+#   - Claude: Anmeldung mit dem Claude-Abo ("claude auth login --claudeai")
+#
+# Relative Pfade beziehen sich auf den Ordner dieser Datei.
+
+[organization]
+name = "Musterpflege GmbH"
+signature = """Mit freundlichen Grüßen
+
+[Name]
+Musterpflege GmbH"""
+
+[storage]
+# SQLite-Datenbank und Dokumentablage. Nicht in einem Cloud-Sync-Ordner ablegen.
+data_dir = "daten/postfach"
+
+[source]
+# "imap" = IMAP-Postfach, nur lesend (EXAMINE + BODY.PEEK, keine Änderungen am Postfach)
+# "eml"  = .eml-Dateien aus eml_dir (künstliche Testmails, "mail-agent testdaten")
+type = "imap"
+eml_dir = "daten/eingang"
+
+[imap]
+host = "imap.example.org"
+port = 993
+mailbox = "INBOX"
+# Eintrag im Windows-Anmeldeinformationsspeicher:
+#   cmdkey /generic:MAIL_AGENT/postfach /user:info@musterpflege.example /pass
+credential_target = "MAIL_AGENT/postfach"
+# Muss dem Benutzernamen im Anmeldeinformationsspeicher entsprechen (Schutz vor falschem Postfach).
+allowed_username = "info@musterpflege.example"
+timeout_seconds = 30
+
+[fetch]
+# Nur auf GENAU EINEM PC true: Dieser PC ruft das Postfach ab (Knopf und Zeitplan). Jeder PC hat
+# seine eigene Datenbank – zwei abrufende PCs würden dieselben Mails doppelt lesen und auswerten.
+# Auf allen anderen PCs false lassen (ohne Angabe ist der Abruf bei imap ausgeschaltet).
+enabled = false
+# Mails vor diesem Tag werden nie abgerufen. Danach holt jeder Abruf alles seit dem letzten Abruf,
+# egal wie viele (in Portionen von 20, mit Fortschrittsanzeige). Datum ohne Anführungszeichen,
+# z. B. start_date = 2026-01-01. Ohne Angabe beginnt der erste Abruf 14 Tage vor heute
+# (imap.since_days) und bleibt dann fest.
+# start_date = 2026-01-01
+# Automatischer Abruf, solange der Agent läuft (Uhrzeiten "HH:MM"). War der PC zur Uhrzeit aus,
+# wird der Abruf beim nächsten Start nachgeholt. [] = nur per Knopf.
+times = ["09:00"]
+
+[analysis]
+# "rules" = nur Regeln, keine Daten an eine KI (sicherer Start der Vorlage),
+# "claude-code" = über Claude Code mit dem Claude-Abo, "claude" = Claude-API (kostet zusätzlich).
+# Auf "claude-code" erst umstellen, wenn der Inhaber freigegeben hat, dass Mailinhalte an Claude
+# gehen dürfen; für ein IMAP-Postfach zusätzlich allow_mailbox_data = true setzen.
+# Bei KI-Fehlern arbeiten die Regeln weiter.
+engine = "rules"
+# Schnelleres Modell zum Einordnen (jede Mail), stärkeres nur für nötige Antwortentwürfe.
+model_classify = "claude-sonnet-5-5"
+model_draft = "claude-opus-5-5"
+# low | medium | high | xhigh | max – höher = gründlicher, aber langsamer und teurer
+effort_classify = "low"
+# Entwürfe auf high: nur etwa 5 % der Mails brauchen einen, bessere Formulierung kostet kaum Kontingent.
+effort_draft = "high"
+# Erst Regeln, dann KI: eindeutige Fälle entscheiden die Regeln allein. Die KI wird gefragt, wenn die
+# Regeln unsicherer sind als rules_threshold (0–1) oder die Mail Zahlungen, Fristen, Anhänge oder
+# einen unbekannten Absender enthält.
+rules_first = true
+rules_threshold = 0.8
+# Wie viele Mails gleichzeitig analysiert werden (1–4).
+parallel = 2
+# Bekannte Absender (Warnstufen) und Stil-Leitfaden für Entwürfe, relativ zu dieser Datei.
+known_senders = "config/bekannte_absender.yaml"
+style_guide = "config/stil_leitfaden.md"
+# Feste Eingangsbestätigung für Bewerbungen (kein KI-Text).
+application_template = "config/vorlagen/bewerbung_eingang.md"
+# Muster für Antworten auf Pflegeanfragen: die KI passt es an, ohne KI wird es so verwendet.
+care_request_template = "config/vorlagen/pflegeanfrage_antwort.md"
+# Ausgelesenen Anhangtext (gekürzt) mit an die KI senden?
+send_attachment_text = true
+# Postfachdaten (IMAP) an die Cloud-KI senden? false = Sperre: mit einem IMAP-Postfach geht dann nur
+# engine = "rules". Erst auf true setzen, wenn der Inhaber die Weitergabe an Claude nach der
+# Datenschutzprüfung freigegeben hat (zusammen mit engine = "claude-code").
+allow_mailbox_data = false
+# Nur für "claude-code": Programmaufruf, falls "claude" nicht im PATH liegt (voller Pfad zu claude.exe).
+# claude_command = "claude"
+
+[attachments]
+# Text aus PDF-Anhängen lesen; Scans und Bilder per Tesseract (falls installiert).
+read_text = true
+# Leer = "tesseract" aus PATH oder C:/Program Files/Tesseract-OCR/tesseract.exe
+tesseract_command = ""
+ocr_language = "deu"
+
+[workflow]
+# Wiedervorlage: Mails mit nötiger Antwort, die älter sind als so viele Tage.
+follow_up_days = 3
+# Morgen-Briefing: Fristen der nächsten so vielen Tage.
+briefing_days = 14
+
+[voice]
+# Piper-Stimme für das Vorlesen des Briefings (optional, "uv sync --extra stimme").
+# piper_model = "daten/stimmen/de_DE-thorsten-high.onnx"
+# Whisper-Modell (Ordner) für die lokale Sprachsteuerung (optional, "uv sync --extra sprache").
+# whisper_model = "daten/stimmen/whisper-small"
+
+[web]
+port = 8765
+
+[eval]
+# Hierhin legt die Weboberfläche korrigierte Fälle (anonymisiert) für die Testsammlung.
+new_cases_dir = "tests/eval/neu"

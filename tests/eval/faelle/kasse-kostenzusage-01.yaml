@@ -1,0 +1,26 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: kasse-kostenzusage-01
+beschreibung: "Kostenzusage der AOK für Pflegesachleistungen ohne Bitte um Rückmeldung"
+tags: [kostentraeger, anhang, bekannter-absender]
+mail:
+  von: "AOK Musterland <leistungen@aok-musterland.example>"
+  betreff: "Kostenzusage Pflegesachleistungen – Versicherte Frau Erika Mustermann"
+  datum: "2026-10-20T09:15:00+02:00"
+  anhaenge: [Kostenzusage_PSL_2026-10.pdf]
+  text: |
+    Sehr geehrte Damen und Herren,
+
+    für unsere Versicherte Frau Erika Mustermann (geb. 12.03.1940) übernehmen wir ab dem
+    01.11.2026 die Kosten für Pflegesachleistungen nach § 36 SGB XI im Rahmen des Pflegegrades 3.
+    Die Kostenzusage mit den bewilligten Leistungskomplexen finden Sie im Anhang.
+
+    Mit freundlichen Grüßen
+    Ihre AOK Musterland
+    Pflegekasse – Team Leistungen
+soll:
+  kategorie: kasse_md
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  warnung: false
+  frist: false

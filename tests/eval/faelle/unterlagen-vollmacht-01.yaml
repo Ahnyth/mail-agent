@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: unterlagen-vollmacht-01
+beschreibung: "Sohn schickt Kopie der Vorsorgevollmacht und bittet um Eingangsbestätigung"
+tags: [unterlagen, angehoerige, anhang]
+mail:
+  von: "Andreas Vogel <andreas.vogel@mailbox.example>"
+  betreff: "Vorsorgevollmacht Hildegard Vogel"
+  datum: "2026-10-21T08:47:00+02:00"
+  anhaenge: [Vorsorgevollmacht_Vogel_Scan.pdf]
+  text: |
+    Guten Morgen,
+
+    wie beim Aufnahmegespräch besprochen, sende ich Ihnen anbei die Kopie der Vorsorgevollmacht
+    für meine Mutter, Frau Hildegard Vogel. Ich bin darin für Gesundheitsangelegenheiten
+    und Vertragsangelegenheiten bevollmächtigt.
+
+    Könnten Sie mir kurz bestätigen, dass alles angekommen ist?
+
+    Vielen Dank
+    Andreas Vogel
+soll:
+  kategorie: unterlagen
+  prioritaet: normal
+  entwurf: true
+  zustaendig: pdl

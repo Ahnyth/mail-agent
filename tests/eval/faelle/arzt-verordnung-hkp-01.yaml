@@ -1,0 +1,25 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: arzt-verordnung-hkp-01
+beschreibung: "Hausarztpraxis schickt Verordnung häuslicher Krankenpflege vorab per Mail"
+tags: [arzt, verordnung, anhang, bekannter-absender]
+mail:
+  von: "Hausarztpraxis Dr. Beispiel <praxis@praxis-beispiel.example>"
+  betreff: "Verordnung HKP Frau Mustermann"
+  datum: "2026-10-21T12:02:00+02:00"
+  anhaenge: [Verordnung_HKP_Mustermann.pdf]
+  text: |
+    Sehr geehrtes Pflegeteam,
+
+    anbei vorab die Folgeverordnung häuslicher Krankenpflege (Medikamentengabe, Blutzuckermessung)
+    für Frau Erika Mustermann für den Zeitraum 01.11. bis 31.12.2026.
+    Das Original geht Ihnen in den nächsten Tagen per Post zu.
+
+    Mit freundlichen Grüßen
+    Praxisteam Dr. med. Beispiel
+    Hausarztpraxis Dr. Beispiel
+soll:
+  kategorie: arzt_verordnung
+  prioritaet: normal
+  entwurf: false
+  zustaendig: pdl
+  warnung: false

@@ -1,0 +1,28 @@
+# Erfundener Testfall – alle Personen, Firmen und Daten sind fiktiv.
+id: anhang-bewerbung-falsch-01
+beschreibung: Bewerbung kündigt Lebenslauf an, angehängt ist eine Stromrechnung
+tags: [anhang]
+mail:
+  von: "Murat Muster <murat.muster@mail.example>"
+  betreff: "Bewerbung als Pflegehelfer"
+  datum: "2026-10-28T21:14:00+01:00"
+  anhaenge:
+    - name: Lebenslauf.pdf
+      text: |
+        Stadtwerke Musterstadt – Jahresabrechnung Strom 2026
+        Kundennummer 0000123
+        Verbrauch: 2.140 kWh
+        Nachzahlung: 84,30 EUR
+  text: |
+    Hallo,
+
+    ich möchte mich als Pflegehelfer bei Ihnen bewerben. Meinen Lebenslauf habe ich angehängt.
+
+    Viele Grüße
+    Murat Muster
+soll:
+  kategorie: bewerbung
+  prioritaet: normal
+  entwurf: true
+  zustaendig: personal
+  anhang_passt: false
