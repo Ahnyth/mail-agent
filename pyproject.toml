@@ -3,8 +3,8 @@ name = "mail-agent"
 version = "0.2.0"
 description = "Lokaler, nur lesender Mail-Assistent mit Claude (Vorlage)"
 readme = "README.md"
-license = "PolyForm-Noncommercial-1.0.0 OR PolyForm-Small-Business-1.0.0"  # SPDX expression (PEP 639)
-license-files = ["LICENSE.md", "LICENSES/*.md"]
+license = "MIT"  # SPDX expression (PEP 639)
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = [
     "anthropic>=1.0",
@@ -19,6 +19,9 @@ dependencies = [
     "pyyaml>=6.0",
     "uvicorn>=0.32",
 ]
+
+[project.urls]
+Repository = "https://github.com/Ahnyth/mail-agent"
 
 [project.scripts]
 mail-agent = "mail_agent.cli:main"

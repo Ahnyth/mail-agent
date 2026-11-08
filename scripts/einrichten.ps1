@@ -1,5 +1,5 @@
 ﻿# MailAgent - Einrichtung auf einem Windows-PC. Kann jederzeit erneut laufen (auch zum Aktualisieren).
-# Vorher:  git clone https://github.com/<github-benutzer>/mail-agent.git "$env:USERPROFILE\mail-agent"
+# Vorher:  git clone https://github.com/Ahnyth/mail-agent.git "$env:USERPROFILE\mail-agent"
 # Aufruf:  powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\mail-agent\scripts\einrichten.ps1"
 #
 # Installiert fehlende Programme (Git, uv, Claude Code), holt den aktuellen Stand von GitHub, richtet

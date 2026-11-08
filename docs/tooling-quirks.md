@@ -73,6 +73,9 @@ unter seiner Überschrift eintragen, mit dem Warum (was passiert ist, was zu tun
 - Commits mit der privaten Mailadresse lehnt GitHub ab, wenn sie im Konto als privat geschützt ist: immer die
   No-Reply-Adresse des eigenen GitHub-Kontos nutzen (`<id>+<name>@users.noreply.github.com`).
 - Das GitHub-MCP der Claude-App kann fehlschlagen („Authorization header is badly formatted“); `git` und `gh` gehen.
+- „detected dubious ownership“: Der Ordner gehört einem anderen Windows-Benutzer. Je Befehl
+  `git -c safe.directory=* …` statt einer dauerhaften globalen Ausnahme; ein frischer Klon des eigenen Benutzers
+  hat das Problem nicht. *Warum:* Git schützt so vor fremden Hooks in fremden Ordnern.
 - **Keine Maildaten ins Repository**: einzelne Dateien über 100 MB lehnt GitHub ab, und die Datenbank eines
   großen Postfachs kommt schnell in diese Größe. Dazu kommen Datenschutz und dass Git nichts vergisst.
 
