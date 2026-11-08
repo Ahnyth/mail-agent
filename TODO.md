@@ -8,8 +8,8 @@ stehen in [docs/decisions.md](docs/decisions.md). Nirgends Zeitschätzungen.
 
 Sagt immer, wo eine neue Sitzung weitermacht. Kurz halten.
 
-- **Pflege der Vorlage:** veröffentlicht als öffentliche GitHub-Vorlage `Ahnyth/mail-agent` (MIT, D2 und D3).
-  Als Nächstes: Bildschirmfotos mit den Beispieldaten in die README, dann Bekanntmachen (#7).
+- **Pflege der Vorlage:** veröffentlicht als öffentliche GitHub-Vorlage `Ahnyth/mail-agent` (MIT, D2 bis D5).
+  Nichts offen; Verbesserungen stehen unter „Ideen für später“.
 - **Für eine neue Firma:** die Vorlage an die eigene Firma anpassen (README „An die eigene Firma anpassen“):
   Platzhalter in CLAUDE.md und Guidelines.md, `mail_agent.toml`, bekannte Absender, Stil-Leitfaden, Vorlagen. Danach
   mit `[source] type = "eml"` und Testdaten ausprobieren, dann das echte Postfach nur lesend anbinden.
@@ -25,3 +25,6 @@ Sagt immer, wo eine neue Sitzung weitermacht. Kurz halten.
 - Tests bei jedem Push auf GitHub laufen lassen (GitHub Actions, Windows): ein grünes Abzeichen in der README zeigt
   Besuchern sofort, dass die Vorlage funktioniert.
 - GitHub Sponsors als Spendenweg; Geldfrage, entscheidet der Inhaber.
+- Bildschirmfotos mit den Beispieldaten in die README: Besucher sehen in Sekunden, was die Vorlage tut.
+- Bekanntmachen, falls der Inhaber es doch will (D5): Repo im Profil anheften und auf der Website verlinken,
+  LinkedIn-Beitrag, r/selfhosted und r/ClaudeAI, IT-Dienstleister für Pflegedienste, Praxen und Kanzleien.
